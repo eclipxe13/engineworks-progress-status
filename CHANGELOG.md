@@ -1,3 +1,6 @@
+# v1.0.3 2017-02-09 (2)
+- Implement null object on ProgressInterface as `NullProgress`
+
 # v1.0.2 2017-02-09
 - Documentation changes
 - php-cs-fixer no_alias_functions is now risky, this changes the configuration file
