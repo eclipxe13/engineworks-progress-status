@@ -9,7 +9,7 @@ class Progress extends AbstractSplSubject implements ProgressInterface
     /**
      * Progress constructor.
      *
-     * @param Status $initialStatus
+     * @param Status|null $initialStatus when null it create an empty State using make method
      * @param \SplObserver[] $observers
      */
     public function __construct(Status $initialStatus = null, array $observers = [])
@@ -53,11 +53,11 @@ class Progress extends AbstractSplSubject implements ProgressInterface
         }
     }
 
-    public function shouldNotifyChange(Status $currentStatus, Status $newstatus)
+    public function shouldNotifyChange(Status $currentStatus, Status $newStatus)
     {
-        return ($currentStatus->getValue() != $newstatus->getValue())
-            || ($currentStatus->getMessage() != $newstatus->getMessage())
-            || ($currentStatus->getTotal() != $newstatus->getTotal())
-            || ($currentStatus->getStart() != $newstatus->getStart());
+        return ($currentStatus->getValue() != $newStatus->getValue())
+            || ($currentStatus->getMessage() != $newStatus->getMessage())
+            || ($currentStatus->getTotal() != $newStatus->getTotal())
+            || ($currentStatus->getStart() != $newStatus->getStart());
     }
 }
