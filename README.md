@@ -67,7 +67,8 @@ If you want to notify every 5% set the ratio to 0.05.
 
 ## Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING][] for details and take a look in the [TODO][] section.
+Contributions are welcome! Please read [CONTRIBUTING][] for details
+and don't forget to take a look in the [TODO][] and [CHANGELOG][] files.
 
 ## Copyright and License
 
@@ -77,7 +78,8 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 
 
 [contributing]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/CONTRIBUTING.md
-[changelog]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/TODO.md
+[todo]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/TODO.md
+[changelog]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/CHANGELOG.md
 
 [source]: https://github.com/eclipxe13/engineworks-progress-status
 [release]: https://github.com/eclipxe13/engineworks-progress-status/releases
