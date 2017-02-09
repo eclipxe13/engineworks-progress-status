@@ -44,7 +44,7 @@ class Status
      * @param int $value
      * @param int|null $startTime if null then uses the value of time()
      * @param int|null $current if null then uses the value of time()
-     * @return static
+     * @return Status
      */
     public static function make($total = 0, $message = '', $value = 0, $startTime = null, $current = null)
     {
