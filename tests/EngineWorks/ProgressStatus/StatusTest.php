@@ -17,6 +17,7 @@ class StatusTest extends TestCase
         $value = 4;
         $total = 12;
         $speed = 0.25;
+        $ratio = 0.33;
         $remain = $total - $value;
         $message = 'dummy message';
 
@@ -32,6 +33,7 @@ class StatusTest extends TestCase
         $this->assertEquals($remain, $status->getRemain());
         $this->assertEquals($futureTime, $status->getEstimatedTimeOfEnd());
         $this->assertEquals($speed, $status->getSpeed(), '', 0.0001);
+        $this->assertEquals($ratio, round($status->getRatio(), 2), '', 0.001);
     }
 
     public function testProgressUseCase()
@@ -52,5 +54,29 @@ class StatusTest extends TestCase
             'Finish [3/3]',
         ];
         $this->assertEquals($expectedMessages, $observer->updates);
+    }
+
+    public function testMakeWithNoValues()
+    {
+        $status = Status::make();
+        $this->assertEquals(0, $status->getTotal());
+        $this->assertEquals(0, $status->getValue());
+        $this->assertNotEquals(0, $status->getCurrent());
+        $this->assertNotEquals(0, $status->getStart());
+        $this->assertEquals($status->getCurrent(), $status->getStart());
+        $this->assertEquals($status->getCurrent(), $status->getEstimatedTimeOfEnd());
+        $this->assertEquals(0, $status->getSecondsElapsed());
+        $this->assertEquals(0, $status->getSpeed());
+        $this->assertEquals(0, $status->getRatio());
+    }
+
+    public function testEstimatedTimeOfEndReturnNullOnInfinite()
+    {
+        // took 15 days for 1 task
+        $startTime = strtotime('2017-01-01 8:00:00');
+        $currentTime = strtotime('2017-01-13 8:00:00');
+        $status = Status::make(1000, '', 1, $startTime, $currentTime);
+        $this->assertEquals(0, $status->getSpeed(), '', 0.001);
+        $this->assertNull($status->getEstimatedTimeOfEnd());
     }
 }

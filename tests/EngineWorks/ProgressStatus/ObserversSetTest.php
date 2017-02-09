@@ -48,7 +48,8 @@ class ObserversSetTest extends TestCase
 
         // retrieve using iterator
         $elements = 0;
-        foreach ($observers as $observer) {
+        foreach ($observers as $key => $observer) {
+            $this->assertEquals($elements, $key);
             $this->assertInstanceOf(\SplObserver::class, $observer);
             $elements = $elements + 1;
         }

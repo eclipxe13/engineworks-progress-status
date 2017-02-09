@@ -26,5 +26,9 @@ class AbstractSplSubjectTest extends TestCase
         // asset that notification actually work
         $this->assertSame($subject, $firstObserver->subject);
         $this->assertSame($subject, $secondObserver->subject);
+
+        // detach observers
+        $subject->detach($firstObserver);
+        $this->assertCount(1, $subject->exposeObservers());
     }
 }
