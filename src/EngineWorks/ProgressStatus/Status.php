@@ -42,8 +42,8 @@ class Status
      * @param int $total
      * @param string $message
      * @param int $value
-     * @param \DateTimeImmutable|null $startTime if null then uses the value of time()
-     * @param \DateTimeImmutable|null $current if null then uses the value of time()
+     * @param int|null $startTime if null then uses the value of time()
+     * @param int|null $current if null then uses the value of time()
      * @return static
      */
     public static function make($total = 0, $message = '', $value = 0, $startTime = null, $current = null)
