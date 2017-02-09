@@ -1,0 +1,35 @@
+{
+    "name": "eclipxe/engineworks-progress-status",
+    "description": "PHP Progress Status Library (using SPL Subject Observer)",
+    "homepage": "https://github.com/eclipxe13/engineworks-progress-status",
+    "license": "MIT",
+    "keywords": ["progress", "notification", "subject observer", "templates"],
+    "authors": [
+        {
+            "name": "Carlos C Soto",
+            "email": "eclipxe13@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "slim/php-view": "@stable"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable",
+        "jakub-onderka/php-parallel-lint": "@stable",
+        "squizlabs/php_codesniffer": "@stable",
+        "friendsofphp/php-cs-fixer": "@stable",
+        "scrutinizer/ocular": "@stable",
+        "pds/skeleton": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "EngineWorks\\ProgressStatus\\": "src/EngineWorks/ProgressStatus/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\EngineWorks\\ProgressStatus\\": "tests/EngineWorks/ProgressStatus/"
+        }
+    }
+}
