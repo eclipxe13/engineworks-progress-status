@@ -12,7 +12,7 @@ class ProgressByRatioTest extends TestCase
         $ratio = 0.01;
         $precision = 2;
         $progress = new ProgressByRatio();
-        $this->assertEquals($ratio, $progress->getRatio(), '', 0.01);
+        $this->assertEqualsWithDelta($ratio, $progress->getRatio(), 0.01);
         $this->assertSame($precision, $progress->getPrecision());
     }
 
@@ -21,7 +21,7 @@ class ProgressByRatioTest extends TestCase
         $ratio = 0.1;
         $precision = 1;
         $progress = new ProgressByRatio(Status::make(), [], $ratio, $precision);
-        $this->assertEquals($ratio, $progress->getRatio(), '', 0.1);
+        $this->assertEqualsWithDelta($ratio, $progress->getRatio(), 0.01);
         $this->assertSame($precision, $progress->getPrecision());
     }
 

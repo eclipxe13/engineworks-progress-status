@@ -32,8 +32,8 @@ class StatusTest extends TestCase
         $this->assertEquals(new \DateInterval('PT16S'), $status->getIntervalElapsed());
         $this->assertEquals($remain, $status->getRemain());
         $this->assertEquals($futureTime, $status->getEstimatedTimeOfEnd());
-        $this->assertEquals($speed, $status->getSpeed(), '', 0.0001);
-        $this->assertEquals($ratio, round($status->getRatio(), 2), '', 0.001);
+        $this->assertEqualsWithDelta($speed, $status->getSpeed(), 0.0001);
+        $this->assertEqualsWithDelta($ratio, round($status->getRatio(), 2), 0.001);
     }
 
     public function testProgressUseCase()
@@ -76,7 +76,7 @@ class StatusTest extends TestCase
         $startTime = strtotime('2017-01-01 8:00:00');
         $currentTime = strtotime('2017-01-13 8:00:00');
         $status = Status::make(1000, '', 1, $startTime, $currentTime);
-        $this->assertEquals(0, $status->getSpeed(), '', 0.001);
+        $this->assertEqualsWithDelta(0, $status->getSpeed(), 0.001);
         $this->assertNull($status->getEstimatedTimeOfEnd());
     }
 }
