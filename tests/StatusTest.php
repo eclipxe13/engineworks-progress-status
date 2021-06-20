@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
 
+use DateInterval;
 use EngineWorks\ProgressStatus\Progress;
 use EngineWorks\ProgressStatus\Status;
 use PHPUnit\Framework\TestCase;
@@ -31,7 +32,7 @@ class StatusTest extends TestCase
         $this->assertSame($message, $status->getMessage());
 
         $this->assertEquals($elapsed, $status->getSecondsElapsed());
-        $this->assertEquals(new \DateInterval('PT16S'), $status->getIntervalElapsed());
+        $this->assertEquals(new DateInterval('PT16S'), $status->getIntervalElapsed());
         $this->assertEquals($remain, $status->getRemain());
         $this->assertEquals($futureTime, $status->getEstimatedTimeOfEnd());
         $this->assertEqualsWithDelta($speed, $status->getSpeed(), 0.0001);

@@ -3,17 +3,20 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
 
+use Countable;
 use EngineWorks\ProgressStatus\ObserversSet;
+use Iterator;
 use PHPUnit\Framework\TestCase;
 use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
+use SplObserver;
 
 class ObserversSetTest extends TestCase
 {
     public function testConstructor()
     {
         $observers = new ObserversSet();
-        $this->assertInstanceOf(\Countable::class, $observers);
-        $this->assertInstanceOf(\Iterator::class, $observers);
+        $this->assertInstanceOf(Countable::class, $observers);
+        $this->assertInstanceOf(Iterator::class, $observers);
         $this->assertCount(0, $observers);
     }
 
@@ -52,7 +55,7 @@ class ObserversSetTest extends TestCase
         $elements = 0;
         foreach ($observers as $key => $observer) {
             $this->assertEquals($elements, $key);
-            $this->assertInstanceOf(\SplObserver::class, $observer);
+            $this->assertInstanceOf(SplObserver::class, $observer);
             $elements = $elements + 1;
         }
         $this->assertSame($count, $elements);

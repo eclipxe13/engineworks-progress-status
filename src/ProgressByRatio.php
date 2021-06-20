@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
+use InvalidArgumentException;
+use SplObserver;
+
 class ProgressByRatio extends Progress
 {
     /** @var float */
@@ -15,7 +18,7 @@ class ProgressByRatio extends Progress
      * ProgressByRatio constructor.
      *
      * @param Status $status
-     * @param \SplObserver[] $observers
+     * @param SplObserver[] $observers
      * @param float $ratio
      * @param int $precision
      */
@@ -55,11 +58,11 @@ class ProgressByRatio extends Progress
     protected function setRatio(float $ratio): void
     {
         if (! is_int($ratio) && ! is_float($ratio)) {
-            throw new \InvalidArgumentException('Ratio is not a float value');
+            throw new InvalidArgumentException('Ratio is not a float value');
         }
         $ratio = round($ratio, $this->precision);
         if ($ratio < pow(10, - $this->precision)) {
-            throw new \InvalidArgumentException('Ratio change is lower than minimum value of precision');
+            throw new InvalidArgumentException('Ratio change is lower than minimum value of precision');
         }
         $this->ratio = $ratio;
     }
@@ -70,7 +73,7 @@ class ProgressByRatio extends Progress
     protected function setPrecision(int $precision): void
     {
         if (! is_int($precision) || 0 === $precision) {
-            throw new \InvalidArgumentException('Precision must be an positive integer greater or equals to zero');
+            throw new InvalidArgumentException('Precision must be an positive integer greater or equals to zero');
         }
         $this->precision = $precision;
     }

@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
+use DateInterval;
+use DateTimeImmutable;
+
 class Status
 {
     /** @var int|float */
@@ -157,10 +160,10 @@ class Status
     /**
      * Get elapsed time between start time and current time
      *
-     * @return \DateInterval
+     * @return DateInterval
      */
-    public function getIntervalElapsed(): \DateInterval
+    public function getIntervalElapsed(): DateInterval
     {
-        return (new \DateTimeImmutable('@' . $this->start))->diff(new \DateTimeImmutable('@' . $this->current));
+        return (new DateTimeImmutable('@' . $this->start))->diff(new DateTimeImmutable('@' . $this->current));
     }
 }

@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
-interface ProgressInterface extends \SplSubject
+use SplSubject;
+
+interface ProgressInterface extends SplSubject
 {
     /**
      * Return the current progress status

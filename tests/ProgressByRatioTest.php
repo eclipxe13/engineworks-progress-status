@@ -5,6 +5,7 @@ namespace EngineWorks\ProgressStatus\Tests;
 
 use EngineWorks\ProgressStatus\ProgressByRatio;
 use EngineWorks\ProgressStatus\Status;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class ProgressByRatioTest extends TestCase
@@ -38,7 +39,7 @@ class ProgressByRatioTest extends TestCase
      */
     public function testInvalidPrecision($precision)
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageMatches('/.*precision.*/i');
         new ProgressByRatio(Status::make(), [], 0.1, $precision);
     }
@@ -54,7 +55,7 @@ class ProgressByRatioTest extends TestCase
      */
     public function testInvalidRatio($ratio)
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageMatches('/.*ratio.*/i');
         new ProgressByRatio(Status::make(), [], $ratio, 2);
     }

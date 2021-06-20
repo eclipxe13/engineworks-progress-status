@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace EngineWorks\ProgressStatus\Tests\Mocks;
 
 use EngineWorks\ProgressStatus\AbstractSplSubject;
+use EngineWorks\ProgressStatus\ObserversSet;
 
 class Subject extends AbstractSplSubject
 {
@@ -12,7 +13,7 @@ class Subject extends AbstractSplSubject
      */
     public $foo = '';
 
-    public function exposeObservers(): \EngineWorks\ProgressStatus\ObserversSet
+    public function exposeObservers(): ObserversSet
     {
         return parent::getObservers();
     }

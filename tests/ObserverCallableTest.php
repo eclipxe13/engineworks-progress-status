@@ -6,16 +6,18 @@ namespace EngineWorks\ProgressStatus\Tests;
 use EngineWorks\ProgressStatus\ObserverCallable;
 use PHPUnit\Framework\TestCase;
 use EngineWorks\ProgressStatus\Tests\Mocks\Subject;
+use SplObserver;
+use SplSubject;
 
 class ObserverCallableTest extends TestCase
 {
     public function testConstructor()
     {
-        $callable = function (): void {
-            return;
+        $callable = function (): int {
+            return 1;
         };
         $observer = new ObserverCallable($callable);
-        $this->assertInstanceOf(\SplObserver::class, $observer);
+        $this->assertInstanceOf(SplObserver::class, $observer);
         $this->assertSame($callable, $observer->getCallable());
     }
 
@@ -24,7 +26,7 @@ class ObserverCallableTest extends TestCase
         $subject = new Subject();
         $expectedMessage = 'This is the expected message';
         $retrievedMessage = '';
-        $callable = function (\SplSubject $subject) use (&$retrievedMessage): void {
+        $callable = function (SplSubject $subject) use (&$retrievedMessage): void {
             /* @var Subject $subject */
             $retrievedMessage = $subject->foo;
         };

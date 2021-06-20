@@ -7,6 +7,7 @@ use EngineWorks\ProgressStatus\Progress;
 use EngineWorks\ProgressStatus\Status;
 use PHPUnit\Framework\TestCase;
 use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
+use SplSubject;
 
 class ProgressTest extends TestCase
 {
@@ -14,7 +15,7 @@ class ProgressTest extends TestCase
     {
         $now = time();
         $progress = new Progress();
-        $this->assertInstanceOf(\SplSubject::class, $progress);
+        $this->assertInstanceOf(SplSubject::class, $progress);
         $this->assertInstanceOf(Status::class, $progress->getStatus());
         $status = $progress->getStatus();
         $this->assertSame(0, $status->getValue());

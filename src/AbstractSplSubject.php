@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
-abstract class AbstractSplSubject implements \SplSubject
+use SplObserver;
+use SplSubject;
+
+abstract class AbstractSplSubject implements SplSubject
 {
     /**
      * @var ObserversSet
@@ -15,12 +18,12 @@ abstract class AbstractSplSubject implements \SplSubject
         $this->observers = new ObserversSet();
     }
 
-    public function attach(\SplObserver $observer)
+    public function attach(SplObserver $observer)
     {
         $this->observers->attach($observer);
     }
 
-    public function detach(\SplObserver $observer)
+    public function detach(SplObserver $observer)
     {
         $this->observers->detach($observer);
     }
@@ -33,9 +36,9 @@ abstract class AbstractSplSubject implements \SplSubject
     }
 
     /**
-     * @return ObserversSet|\SplObserver[]
+     * @return ObserversSet|SplObserver[]
      */
-    protected function getObservers(): \EngineWorks\ProgressStatus\ObserversSet
+    protected function getObservers(): ObserversSet
     {
         return $this->observers;
     }

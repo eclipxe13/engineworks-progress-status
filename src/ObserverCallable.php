@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
+use SplObserver;
 use SplSubject;
 
-class ObserverCallable implements \SplObserver
+class ObserverCallable implements SplObserver
 {
     /** @var callable */
     private $callable;

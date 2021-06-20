@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
+use SplObserver;
+
 class Progress extends AbstractSplSubject implements ProgressInterface
 {
     /** @var Status */
@@ -12,7 +14,7 @@ class Progress extends AbstractSplSubject implements ProgressInterface
      * Progress constructor.
      *
      * @param Status|null $initialStatus when null it create an empty State using make method
-     * @param \SplObserver[] $observers
+     * @param SplObserver[] $observers
      */
     public function __construct(Status $initialStatus = null, array $observers = [])
     {
@@ -55,11 +57,11 @@ class Progress extends AbstractSplSubject implements ProgressInterface
         }
     }
 
-    public function shouldNotifyChange(Status $currentStatus, Status $newStatus): bool
+    public function shouldNotifyChange(Status $current, Status $newStatus): bool
     {
-        return ($currentStatus->getValue() != $newStatus->getValue())
-            || ($currentStatus->getMessage() != $newStatus->getMessage())
-            || ($currentStatus->getTotal() != $newStatus->getTotal())
-            || ($currentStatus->getStart() != $newStatus->getStart());
+        return ($current->getValue() != $newStatus->getValue())
+            || ($current->getMessage() != $newStatus->getMessage())
+            || ($current->getTotal() != $newStatus->getTotal())
+            || ($current->getStart() != $newStatus->getStart());
     }
 }

@@ -3,22 +3,27 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
-class ObserversSet implements \Countable, \Iterator
+use Countable;
+use Iterator;
+use SplObjectStorage;
+use SplObserver;
+
+class ObserversSet implements Countable, Iterator
 {
-    /** @var \SplObjectStorage */
+    /** @var SplObjectStorage */
     private $observers;
 
     public function __construct()
     {
-        $this->observers = new \SplObjectStorage();
+        $this->observers = new SplObjectStorage();
     }
 
-    public function attach(\SplObserver $observer)
+    public function attach(SplObserver $observer)
     {
         $this->observers->attach($observer);
     }
 
-    public function detach(\SplObserver $observer)
+    public function detach(SplObserver $observer)
     {
         $this->observers->detach($observer);
     }
