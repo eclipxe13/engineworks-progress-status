@@ -10,10 +10,10 @@ use SplObserver;
 class ProgressByRatio extends Progress
 {
     /** @var float */
-    private $ratio;
+    private $ratio = 0.01;
 
     /** @var int */
-    private $precision;
+    private $precision = 2;
 
     /**
      * ProgressByRatio constructor.
@@ -38,17 +38,11 @@ class ProgressByRatio extends Progress
         return ($current !== $new);
     }
 
-    /**
-     * @return float
-     */
     public function getRatio(): float
     {
         return $this->ratio;
     }
 
-    /**
-     * @return int
-     */
     public function getPrecision(): int
     {
         return $this->precision;
@@ -63,12 +57,9 @@ class ProgressByRatio extends Progress
         $this->ratio = $ratio;
     }
 
-    /**
-     * @param int $precision
-     */
     protected function setPrecision(int $precision): void
     {
-        if (! is_int($precision) || 0 === $precision) {
+        if (0 === $precision) {
             throw new InvalidArgumentException('Precision must be an positive integer greater or equals to zero');
         }
         $this->precision = $precision;

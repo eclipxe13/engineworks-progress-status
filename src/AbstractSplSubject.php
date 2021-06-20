@@ -36,9 +36,6 @@ abstract class AbstractSplSubject implements SplSubject
         }
     }
 
-    /**
-     * @return ObserversSet|SplObserver[]
-     */
     protected function getObservers(): ObserversSet
     {
         return $this->observers;
