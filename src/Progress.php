@@ -15,9 +15,9 @@ class Progress extends AbstractSplSubject implements ProgressInterface
      * Progress constructor.
      *
      * @param Status|null $initialStatus when null it create an empty State using make method
-     * @param SplObserver[] $observers
+     * @param iterable<SplObserver> $observers
      */
-    public function __construct(Status $initialStatus = null, array $observers = [])
+    public function __construct(Status $initialStatus = null, iterable $observers = [])
     {
         parent::__construct();
         $this->status = $initialStatus ?: Status::make();

@@ -19,12 +19,16 @@ class ProgressByRatio extends Progress
      * ProgressByRatio constructor.
      *
      * @param Status|null $status
-     * @param SplObserver[] $observers
+     * @param iterable<SplObserver> $observers
      * @param float $ratio
      * @param int $precision
      */
-    public function __construct(Status $status = null, array $observers = [], float $ratio = 0.01, int $precision = 2)
-    {
+    public function __construct(
+        Status $status = null,
+        iterable $observers = [],
+        float $ratio = 0.01,
+        int $precision = 2
+    ) {
         parent::__construct($status, $observers);
         $this->setPrecision($precision);
         $this->setRatio($ratio);
