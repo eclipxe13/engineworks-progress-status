@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpFullyQualifiedNameUsageInspection */
+<?php
+
+/** @noinspection PhpFullyQualifiedNameUsageInspection */
 
 declare(strict_types=1);
 
@@ -27,7 +29,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     // Skip
     $parameters->set(Option::SKIP, [
-        \Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector::class
+        \Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector::class,
     ]);
 
     // get services (needed for register a single rule)

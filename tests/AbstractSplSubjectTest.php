@@ -1,15 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
 
-use PHPUnit\Framework\TestCase;
 use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
 use EngineWorks\ProgressStatus\Tests\Mocks\Subject;
+use PHPUnit\Framework\TestCase;
 
 class AbstractSplSubjectTest extends TestCase
 {
-    public function testNotify()
+    public function testNotify(): void
     {
         // initialize
         $firstObserver = new Observer();

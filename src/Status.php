@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -51,10 +52,15 @@ class Status
      * @param int|null $current if null then uses the value of time()
      * @return Status
      */
-    public static function make(int $total = 0, string $message = '', int $value = 0, int $startTime = null, int $current = null): Status
-    {
+    public static function make(
+        int $total = 0,
+        string $message = '',
+        int $value = 0,
+        int $startTime = null,
+        int $current = null
+    ): self {
         $now = time();
-        return new self($current ? : $now, $startTime ? : $now, $value, $total, $message);
+        return new self($current ?: $now, $startTime ?: $now, $value, $total, $message);
     }
 
     /**
@@ -116,7 +122,7 @@ class Status
      */
     public function getRatio(): float
     {
-        if ($this->total == 0) {
+        if (0 == $this->total) {
             return 0.0;
         }
         return floatval($this->value / $this->total);

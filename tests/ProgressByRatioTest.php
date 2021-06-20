@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
@@ -10,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class ProgressByRatioTest extends TestCase
 {
-    public function testConstuctor()
+    public function testConstuctor(): void
     {
         $ratio = 0.01;
         $precision = 2;
@@ -19,7 +20,7 @@ class ProgressByRatioTest extends TestCase
         $this->assertSame($precision, $progress->getPrecision());
     }
 
-    public function testConstuctorWithValues()
+    public function testConstuctorWithValues(): void
     {
         $ratio = 0.1;
         $precision = 1;
@@ -37,7 +38,7 @@ class ProgressByRatioTest extends TestCase
      * @param $precision
      * @dataProvider providerInvalidPrecision
      */
-    public function testInvalidPrecision($precision)
+    public function testInvalidPrecision($precision): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageMatches('/.*precision.*/i');
@@ -53,14 +54,14 @@ class ProgressByRatioTest extends TestCase
      * @param $ratio
      * @dataProvider providerInvalidRatio
      */
-    public function testInvalidRatio($ratio)
+    public function testInvalidRatio($ratio): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageMatches('/.*ratio.*/i');
         new ProgressByRatio(Status::make(), [], $ratio, 2);
     }
 
-    public function testShouldNotifyChangePossitive()
+    public function testShouldNotifyChangePossitive(): void
     {
         $ratio = 0.05; // 5%
         $precision = 2; // two decimal places

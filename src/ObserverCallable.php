@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -21,7 +22,7 @@ class ObserverCallable implements SplObserver
         $this->callable = $callable;
     }
 
-    public function update(SplSubject $subject)
+    public function update(SplSubject $subject): void
     {
         call_user_func($this->callable, $subject);
     }

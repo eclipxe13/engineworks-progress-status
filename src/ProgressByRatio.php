@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -62,7 +63,7 @@ class ProgressByRatio extends Progress
             throw new InvalidArgumentException('Ratio is not a float value');
         }
         $ratio = round($ratio, $this->precision);
-        if ($ratio < pow(10, - $this->precision)) {
+        if ($ratio < 10 ** (- $this->precision)) {
             throw new InvalidArgumentException('Ratio change is lower than minimum value of precision');
         }
         $this->ratio = $ratio;

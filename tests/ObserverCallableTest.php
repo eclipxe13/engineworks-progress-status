@@ -1,17 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
 
 use EngineWorks\ProgressStatus\ObserverCallable;
-use PHPUnit\Framework\TestCase;
 use EngineWorks\ProgressStatus\Tests\Mocks\Subject;
+use PHPUnit\Framework\TestCase;
 use SplObserver;
 use SplSubject;
 
 class ObserverCallableTest extends TestCase
 {
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $callable = function (): int {
             return 1;
@@ -21,7 +22,7 @@ class ObserverCallableTest extends TestCase
         $this->assertSame($callable, $observer->getCallable());
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $subject = new Subject();
         $expectedMessage = 'This is the expected message';

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -18,12 +19,12 @@ class ObserversSet implements Countable, Iterator
         $this->observers = new SplObjectStorage();
     }
 
-    public function attach(SplObserver $observer)
+    public function attach(SplObserver $observer): void
     {
         $this->observers->attach($observer);
     }
 
-    public function detach(SplObserver $observer)
+    public function detach(SplObserver $observer): void
     {
         $this->observers->detach($observer);
     }
@@ -38,7 +39,7 @@ class ObserversSet implements Countable, Iterator
         return $this->observers->current();
     }
 
-    public function next()
+    public function next(): void
     {
         $this->observers->next();
     }
@@ -53,7 +54,7 @@ class ObserversSet implements Countable, Iterator
         return $this->observers->valid();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->observers->rewind();
     }

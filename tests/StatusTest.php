@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
@@ -6,12 +7,12 @@ namespace EngineWorks\ProgressStatus\Tests;
 use DateInterval;
 use EngineWorks\ProgressStatus\Progress;
 use EngineWorks\ProgressStatus\Status;
-use PHPUnit\Framework\TestCase;
 use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
+use PHPUnit\Framework\TestCase;
 
 class StatusTest extends TestCase
 {
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $startTime = strtotime('2017-01-13 8:00:00');
         $currentTime = strtotime('2017-01-13 8:00:16');
@@ -39,7 +40,7 @@ class StatusTest extends TestCase
         $this->assertEqualsWithDelta($ratio, round($status->getRatio(), 2), 0.001);
     }
 
-    public function testProgressUseCase()
+    public function testProgressUseCase(): void
     {
         $addresses = ['foo@example.com', 'bar@example.com', 'baz@example.com'];
         $observer = new Observer();
@@ -59,7 +60,7 @@ class StatusTest extends TestCase
         $this->assertEquals($expectedMessages, $observer->updates);
     }
 
-    public function testMakeWithNoValues()
+    public function testMakeWithNoValues(): void
     {
         $status = Status::make();
         $this->assertEquals(0, $status->getTotal());
@@ -73,7 +74,7 @@ class StatusTest extends TestCase
         $this->assertEquals(0, $status->getRatio());
     }
 
-    public function testEstimatedTimeOfEndReturnNullOnInfinite()
+    public function testEstimatedTimeOfEndReturnNullOnInfinite(): void
     {
         // took 15 days for 1 task
         $startTime = strtotime('2017-01-01 8:00:00');

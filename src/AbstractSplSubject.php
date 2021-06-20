@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -18,17 +19,17 @@ abstract class AbstractSplSubject implements SplSubject
         $this->observers = new ObserversSet();
     }
 
-    public function attach(SplObserver $observer)
+    public function attach(SplObserver $observer): void
     {
         $this->observers->attach($observer);
     }
 
-    public function detach(SplObserver $observer)
+    public function detach(SplObserver $observer): void
     {
         $this->observers->detach($observer);
     }
 
-    public function notify()
+    public function notify(): void
     {
         foreach ($this->getObservers() as $observer) {
             $observer->update($this);

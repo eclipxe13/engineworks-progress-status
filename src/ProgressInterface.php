@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -20,7 +21,7 @@ interface ProgressInterface extends SplSubject
      * @param int|float|null $increase
      * @return void
      */
-    public function increase(string $message = null, $increase = 1);
+    public function increase(string $message = null, $increase = 1): void;
 
     /**
      * Update the status with this values
@@ -38,7 +39,7 @@ interface ProgressInterface extends SplSubject
         $total = null,
         int $startTime = null,
         int $current = null
-    );
+    ): void;
 
     /**
      * Compare both states and return if the status should change

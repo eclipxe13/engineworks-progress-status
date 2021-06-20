@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -19,7 +20,7 @@ class Progress extends AbstractSplSubject implements ProgressInterface
     public function __construct(Status $initialStatus = null, array $observers = [])
     {
         parent::__construct();
-        $this->status = $initialStatus ? : Status::make();
+        $this->status = $initialStatus ?: Status::make();
         foreach ($observers as $observer) {
             $this->attach($observer);
         }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
@@ -15,7 +16,7 @@ class NullProgress implements ProgressInterface
 
     public function __construct(Status $status = null)
     {
-        $this->status = $status ? : Status::make();
+        $this->status = $status ?: Status::make();
     }
 
     public function getStatus(): Status

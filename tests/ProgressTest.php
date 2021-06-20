@@ -1,17 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
 
 use EngineWorks\ProgressStatus\Progress;
 use EngineWorks\ProgressStatus\Status;
-use PHPUnit\Framework\TestCase;
 use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
+use PHPUnit\Framework\TestCase;
 use SplSubject;
 
 class ProgressTest extends TestCase
 {
-    public function testConstructorWithDefaults()
+    public function testConstructorWithDefaults(): void
     {
         $now = time();
         $progress = new Progress();
@@ -25,7 +26,7 @@ class ProgressTest extends TestCase
         $this->assertSame($now, $status->getCurrent());
     }
 
-    public function testConstructWithValues()
+    public function testConstructWithValues(): void
     {
         $start = strtotime('2017-01-13 15:00:00');
         $current = strtotime('2017-01-13 15:01:00');
@@ -41,7 +42,7 @@ class ProgressTest extends TestCase
         $this->assertSame($current, $status->getCurrent());
     }
 
-    public function testNotify()
+    public function testNotify(): void
     {
         $progress = new Progress();
         $observer = new Observer();
@@ -50,7 +51,7 @@ class ProgressTest extends TestCase
         $this->assertSame($observer->subject, $progress);
     }
 
-    public function testIncrease()
+    public function testIncrease(): void
     {
         $progress = new Progress();
         $progress->increase('two', 2);
@@ -59,7 +60,7 @@ class ProgressTest extends TestCase
         $this->assertSame('two', $status->getMessage());
     }
 
-    public function testUpdateWithNoValues()
+    public function testUpdateWithNoValues(): void
     {
         $start = strtotime('2017-01-13 15:00:00');
         $current = strtotime('2017-01-13 15:01:00');

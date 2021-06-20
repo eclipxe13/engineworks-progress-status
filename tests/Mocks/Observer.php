@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests\Mocks;
@@ -15,7 +16,7 @@ class Observer implements SplObserver
     /** @var string[] */
     public $updates = [];
 
-    public function update(SplSubject $subject)
+    public function update(SplSubject $subject): void
     {
         $this->subject = $subject;
         if ($subject instanceof ProgressInterface) {
