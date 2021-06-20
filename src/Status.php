@@ -141,7 +141,7 @@ class Status
             return time();
         }
         $minimumSpeed = self::MINIMUM_SPEED;
-        if (abs($speed) <= $minimumSpeed) {
+        if (abs($speed) < $minimumSpeed) {
             return null;
         }
         return $this->current + intval($remain / $speed);

@@ -35,7 +35,7 @@ class StatusTest extends TestCase
         $this->assertEquals($elapsed, $status->getSecondsElapsed());
         $this->assertEquals(new DateInterval('PT16S'), $status->getIntervalElapsed());
         $this->assertEquals($remain, $status->getRemain());
-        $this->assertEquals(date('c', $futureTime), date('c', $status->getEstimatedTimeOfEnd()));
+        $this->assertEquals(date('c', $futureTime), date('c', $status->getEstimatedTimeOfEnd() ?? 0));
         $this->assertEqualsWithDelta($speed, $status->getSpeed(), 0.0001);
         $this->assertEqualsWithDelta($ratio, round($status->getRatio(), 2), 0.001);
     }
@@ -82,17 +82,27 @@ class StatusTest extends TestCase
         $status = Status::make(20, '', 1, $startTime, $currentTime);
         $this->assertSame(
             date('c', $currentTime + ($status->getRemain() * $timeToEndOneTask)),
-            date('c', $status->getEstimatedTimeOfEnd())
+            date('c', $status->getEstimatedTimeOfEnd() ?? 0)
+        );
+    }
+
+    public function testEstimatedTimeOfEndReturnMaxETA(): void
+    {
+        $startTime = strtotime('2017-01-01 8:00:00');
+        $currentTime = strtotime('+ 24 hours', $startTime); // speed is 1 / day
+        $expectedTime = strtotime('+ 48 hours', $startTime);
+        $status = Status::make(2, '', 1, $startTime, $currentTime);
+        $this->assertSame(
+            date('c', $expectedTime),
+            date('c', $status->getEstimatedTimeOfEnd() ?? 0)
         );
     }
 
     public function testEstimatedTimeOfEndReturnNullOnInfinite(): void
     {
-        // took 15 days for 1 task
         $startTime = strtotime('2017-01-01 8:00:00');
-        $currentTime = strtotime('2017-01-13 8:00:00');
+        $currentTime = strtotime('+ 24 hours 1 second', $startTime); // speed is lower than 1 / day
         $status = Status::make(1000, '', 1, $startTime, $currentTime);
-        $this->assertEqualsWithDelta(0, $status->getSpeed(), 0.001);
         $this->assertNull($status->getEstimatedTimeOfEnd());
     }
 }
