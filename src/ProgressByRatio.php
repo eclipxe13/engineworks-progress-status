@@ -17,7 +17,7 @@ class ProgressByRatio extends Progress
     /**
      * ProgressByRatio constructor.
      *
-     * @param Status $status
+     * @param Status|null $status
      * @param SplObserver[] $observers
      * @param float $ratio
      * @param int $precision
@@ -29,9 +29,10 @@ class ProgressByRatio extends Progress
         $this->setRatio($ratio);
     }
 
-    public function shouldNotifyChange(Status $currentStatus, Status $newStatus): bool
+    /** @noinspection PhpMissingParentCallCommonInspection */
+    public function shouldNotifyChange(Status $current, Status $newStatus): bool
     {
-        $current = (int) ceil(round($currentStatus->getRatio(), $this->precision) / $this->ratio);
+        $current = (int) ceil(round($current->getRatio(), $this->precision) / $this->ratio);
         $new = (int) ceil(round($newStatus->getRatio(), $this->precision) / $this->ratio);
         return ($current !== $new);
     }

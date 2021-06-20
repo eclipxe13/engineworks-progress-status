@@ -161,9 +161,11 @@ class Status
      * Get elapsed time between start time and current time
      *
      * @return DateInterval
+     * @noinspection PhpDocMissingThrowsInspection
      */
     public function getIntervalElapsed(): DateInterval
     {
+        /** @noinspection PhpUnhandledExceptionInspection */
         return (new DateTimeImmutable('@' . $this->start))->diff(new DateTimeImmutable('@' . $this->current));
     }
 }
