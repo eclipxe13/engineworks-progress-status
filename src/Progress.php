@@ -60,9 +60,9 @@ class Progress extends AbstractSplSubject implements ProgressInterface
 
     public function shouldNotifyChange(Status $current, Status $newStatus): bool
     {
-        return ($current->getValue() != $newStatus->getValue())
-            || ($current->getMessage() != $newStatus->getMessage())
-            || ($current->getTotal() != $newStatus->getTotal())
-            || ($current->getStart() != $newStatus->getStart());
+        return ($current->getValue() !== $newStatus->getValue())
+            || ($current->getMessage() !== $newStatus->getMessage())
+            || ($current->getTotal() !== $newStatus->getTotal())
+            || ($current->getStart() !== $newStatus->getStart());
     }
 }
