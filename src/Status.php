@@ -9,10 +9,10 @@ use DateTimeImmutable;
 
 class Status
 {
-    /** @var int|float */
+    /** @var int */
     private $value;
 
-    /** @var int|float */
+    /** @var int */
     private $total;
 
     /** @var int */
@@ -50,63 +50,51 @@ class Status
      * @param int $value
      * @param int|null $startTime if null then uses the value of time()
      * @param int|null $current if null then uses the value of time()
-     * @return Status
+     *
+     * @return self
      */
     public static function make(
         int $total = 0,
         string $message = '',
         int $value = 0,
-        int $startTime = null,
-        int $current = null
+        ?int $startTime = null,
+        ?int $current = null
     ): self {
         $now = time();
         return new self($current ?: $now, $startTime ?: $now, $value, $total, $message);
     }
 
-    /**
-     * @return int
-     */
     public function getStart(): int
     {
         return $this->start;
     }
 
-    /**
-     * @return float|int
-     */
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
 
-    /**
-     * @return float|int
-     */
-    public function getTotal()
+    public function getTotal(): int
     {
         return $this->total;
     }
 
-    /**
-     * @return int
-     */
     public function getCurrent(): int
     {
         return $this->current;
     }
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return $this->message;
     }
 
     /**
-     * @return float current value in seconds elapsed
+     * Get the current value in seconds elapsed
+     *
+     * @return float
      */
-    public function getSpeed()
+    public function getSpeed(): float
     {
         $elapsed = $this->getSecondsElapsed();
         if (0 === $elapsed) {
@@ -131,21 +119,22 @@ class Status
     /**
      * Get the difference between the total and current value
      *
-     * @return int|float
+     * @return int
      */
-    public function getRemain()
+    public function getRemain(): int
     {
         return $this->total - $this->value;
     }
 
     /**
-     * @return int
+     * Return the estimated time of end, NULL if too high
+     * @return int|null
      */
     public function getEstimatedTimeOfEnd(): ?int
     {
         $speed = $this->getSpeed();
         $remain = $this->getRemain();
-        if (0 == $remain) {
+        if (0 === $remain) {
             return time();
         }
         if (abs($speed) < 0.0001) {
@@ -154,10 +143,6 @@ class Status
         return $this->current + (int) round($remain * $speed, 0);
     }
 
-    /**
-     *
-     * @return int
-     */
     public function getSecondsElapsed(): int
     {
         return $this->current - $this->start;

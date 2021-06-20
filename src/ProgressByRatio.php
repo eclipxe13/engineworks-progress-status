@@ -54,14 +54,8 @@ class ProgressByRatio extends Progress
         return $this->precision;
     }
 
-    /**
-     * @param float $ratio
-     */
     protected function setRatio(float $ratio): void
     {
-        if (! is_int($ratio) && ! is_float($ratio)) {
-            throw new InvalidArgumentException('Ratio is not a float value');
-        }
         $ratio = round($ratio, $this->precision);
         if ($ratio < 10 ** (- $this->precision)) {
             throw new InvalidArgumentException('Ratio change is lower than minimum value of precision');

@@ -9,9 +9,7 @@ use EngineWorks\ProgressStatus\ObserversSet;
 
 class Subject extends AbstractSplSubject
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $foo = '';
 
     public function exposeObservers(): ObserversSet

@@ -24,7 +24,7 @@ class NullProgress implements ProgressInterface
         return $this->status;
     }
 
-    public function increase(string $message = null, $increase = 1): void
+    public function increase(string $message = '', $increase = 1): void
     {
     }
 

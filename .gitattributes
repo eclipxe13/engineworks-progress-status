@@ -22,3 +22,4 @@
 /phpcs.xml.dist      export-ignore
 /phpdox.xml.dist     export-ignore
 /phpunit.xml.dist    export-ignore
+/phpstan.neon.dist   export-ignore

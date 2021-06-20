@@ -29,32 +29,41 @@ class ProgressByRatioTest extends TestCase
         $this->assertSame($precision, $progress->getPrecision());
     }
 
+    /** @return array<string, mixed[]> */
     public function providerInvalidPrecision(): array
     {
-        return [[0], [-1]];
+        return [
+            'zero' => [0],
+            'lower than zero' => [-1],
+        ];
     }
 
     /**
-     * @param $precision
+     * @param int $precision
      * @dataProvider providerInvalidPrecision
      */
-    public function testInvalidPrecision($precision): void
+    public function testInvalidPrecision(int $precision): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageMatches('/.*precision.*/i');
         new ProgressByRatio(Status::make(), [], 0.1, $precision);
     }
 
+    /** @return array<string, mixed[]> */
     public function providerInvalidRatio(): array
     {
-        return [[0], [-1], [0.0001], [0.004]];
+        return [
+            'zero' => [0],
+            'lower than zero' => [-1],
+            'lower than minimum precision of 2' => [0.001],
+        ];
     }
 
     /**
-     * @param $ratio
+     * @param float $ratio
      * @dataProvider providerInvalidRatio
      */
-    public function testInvalidRatio($ratio): void
+    public function testInvalidRatio(float $ratio): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageMatches('/.*ratio.*/i');

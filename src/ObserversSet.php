@@ -9,9 +9,12 @@ use Iterator;
 use SplObjectStorage;
 use SplObserver;
 
+/**
+ * @implements Iterator<int, SplObserver>
+ */
 class ObserversSet implements Countable, Iterator
 {
-    /** @var SplObjectStorage */
+    /** @var SplObjectStorage<SplObserver, null> */
     private $observers;
 
     public function __construct()
@@ -36,7 +39,12 @@ class ObserversSet implements Countable, Iterator
 
     public function current()
     {
-        return $this->observers->current();
+        /**
+         * @var SplObserver
+         * @noinspection PhpUnnecessaryLocalVariableInspection
+         */
+        $current = $this->observers->current();
+        return $current;
     }
 
     public function next(): void

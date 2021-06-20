@@ -17,26 +17,26 @@ interface ProgressInterface extends SplSubject
     /**
      * Increase the progress
      *
-     * @param string|null $message
-     * @param int|float|null $increase
+     * @param string $message
+     * @param int $increase
      * @return void
      */
-    public function increase(string $message = null, $increase = 1): void;
+    public function increase(string $message = '', int $increase = 1): void;
 
     /**
      * Update the status with this values
      *
-     * @param string|null $message
-     * @param int|float|null $value
-     * @param int|float|null $total
+     * @param string $message
+     * @param int|null $value
+     * @param int|null $total
      * @param int|null $startTime
      * @param int|null $current
      * @return void
      */
     public function update(
-        string $message = null,
-        $value = null,
-        $total = null,
+        string $message = '',
+        int $value = null,
+        int $total = null,
         int $startTime = null,
         int $current = null
     ): void;

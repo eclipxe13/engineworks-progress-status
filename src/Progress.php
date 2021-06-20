@@ -32,15 +32,15 @@ class Progress extends AbstractSplSubject implements ProgressInterface
         return $this->status;
     }
 
-    public function increase(string $message = null, $increase = 1): void
+    public function increase(string $message = '', int $increase = 1): void
     {
         $this->update($message, $this->status->getValue() + $increase);
     }
 
     public function update(
-        string $message = null,
-        $value = null,
-        $total = null,
+        string $message = '',
+        int $value = null,
+        int $total = null,
         int $startTime = null,
         int $current = null
     ): void {
@@ -49,7 +49,7 @@ class Progress extends AbstractSplSubject implements ProgressInterface
             $startTime ?? $this->status->getStart(),
             $value ?? $this->status->getValue(),
             $total ?? $this->status->getTotal(),
-            $message ?? $this->status->getMessage()
+            $message ?: $this->status->getMessage()
         );
         $shouldNotifyChange = $this->shouldNotifyChange($this->status, $newStatus);
         $this->status = $newStatus;

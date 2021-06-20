@@ -28,7 +28,7 @@ class ObserverCallableTest extends TestCase
         $expectedMessage = 'This is the expected message';
         $retrievedMessage = '';
         $callable = function (SplSubject $subject) use (&$retrievedMessage): void {
-            /* @var Subject $subject */
+            /** @var Subject $subject */
             $retrievedMessage = $subject->foo;
         };
         $observer = new ObserverCallable($callable);
