@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace EngineWorks\ProgressStatus;
 
 class Progress extends AbstractSplSubject implements ProgressInterface

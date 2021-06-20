@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace EngineWorks\ProgressStatus\Tests;
 
 use EngineWorks\ProgressStatus\NullProgress;
