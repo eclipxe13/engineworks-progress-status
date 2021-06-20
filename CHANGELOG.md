@@ -3,6 +3,7 @@
 ## v2.0.0 UNRELEASED
 
 - Bump PHP version to 7.3.
+- README: Fix usage example and rewording.
 
 ## v1.0.4 2017-02-09 14:14
 - Fix composer dependences remove require slim/php-view
