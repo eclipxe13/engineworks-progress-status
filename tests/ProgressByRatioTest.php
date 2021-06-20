@@ -37,7 +37,7 @@ class ProgressByRatioTest extends TestCase
     public function testInvalidPrecision($precision)
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessageRegExp('/.*precision.*/i');
+        $this->expectExceptionMessageMatches('/.*precision.*/i');
         new ProgressByRatio(Status::make(), [], 0.1, $precision);
     }
 
@@ -53,7 +53,7 @@ class ProgressByRatioTest extends TestCase
     public function testInvalidRatio($ratio)
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessageRegExp('/.*ratio.*/i');
+        $this->expectExceptionMessageMatches('/.*ratio.*/i');
         new ProgressByRatio(Status::make(), [], $ratio, 2);
     }
 
