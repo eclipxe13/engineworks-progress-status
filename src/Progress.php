@@ -40,11 +40,11 @@ class Progress extends AbstractSplSubject implements ProgressInterface
         $current = null
     ) {
         $newStatus = new Status(
-            (null === $current) ? time() : $current,
-            (null === $startTime) ? $this->status->getStart() : $startTime,
-            (null === $value) ? $this->status->getValue() : $value,
-            (null === $total) ? $this->status->getTotal() : $total,
-            (null === $message) ? $this->status->getMessage() : $message
+            $current ?? time(),
+            $startTime ?? $this->status->getStart(),
+            $value ?? $this->status->getValue(),
+            $total ?? $this->status->getTotal(),
+            $message ?? $this->status->getMessage()
         );
         $shouldNotifyChange = $this->shouldNotifyChange($this->status, $newStatus);
         $this->status = $newStatus;
