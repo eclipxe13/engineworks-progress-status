@@ -10,10 +10,10 @@ use SplObserver;
 class ProgressByRatio extends Progress
 {
     /** @var float */
-    private $ratio = 0.01;
+    private $ratio;
 
     /** @var int */
-    private $precision = 2;
+    private $precision;
 
     /**
      * ProgressByRatio constructor.
@@ -30,8 +30,11 @@ class ProgressByRatio extends Progress
         int $precision = 2
     ) {
         parent::__construct($status, $observers);
-        $this->setPrecision($precision);
-        $this->setRatio($ratio);
+        if ($precision < 0) {
+            throw new InvalidArgumentException('Precision must be an positive integer');
+        }
+        $this->precision = $precision;
+        $this->ratio = max(round($ratio, $this->precision), 10 ** (-$this->precision));
     }
 
     /** @noinspection PhpMissingParentCallCommonInspection */
@@ -50,22 +53,5 @@ class ProgressByRatio extends Progress
     public function getPrecision(): int
     {
         return $this->precision;
-    }
-
-    protected function setRatio(float $ratio): void
-    {
-        $ratio = round($ratio, $this->precision);
-        if ($ratio < 10 ** (- $this->precision)) {
-            throw new InvalidArgumentException('Ratio change is lower than minimum value of precision');
-        }
-        $this->ratio = $ratio;
-    }
-
-    protected function setPrecision(int $precision): void
-    {
-        if (0 === $precision) {
-            throw new InvalidArgumentException('Precision must be an positive integer greater or equals to zero');
-        }
-        $this->precision = $precision;
     }
 }

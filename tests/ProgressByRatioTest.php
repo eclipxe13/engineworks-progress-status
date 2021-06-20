@@ -24,29 +24,29 @@ class ProgressByRatioTest extends TestCase
     {
         $ratio = 0.1;
         $precision = 1;
-        $progress = new ProgressByRatio(Status::make(), [], $ratio, $precision);
+        $status = Status::make();
+        $progress = new ProgressByRatio($status, [], $ratio, $precision);
+        $this->assertSame($status, $progress->getStatus());
         $this->assertEqualsWithDelta($ratio, $progress->getRatio(), 0.01);
         $this->assertSame($precision, $progress->getPrecision());
     }
 
-    /** @return array<string, mixed[]> */
-    public function providerInvalidPrecision(): array
+    public function testPrecisionLowerThanZeroThrowsException(): void
     {
-        return [
-            'zero' => [0],
-            'lower than zero' => [-1],
-        ];
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Precision must be an positive integer');
+        new ProgressByRatio(Status::make(), [], 0.1, -1);
     }
 
     /**
      * @param int $precision
-     * @dataProvider providerInvalidPrecision
+     * @testWith [0]
+     *           [1]
      */
-    public function testInvalidPrecision(int $precision): void
+    public function testPrecisionMustBeAPositiveInteger(int $precision): void
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageMatches('/.*precision.*/i');
-        new ProgressByRatio(Status::make(), [], 0.1, $precision);
+        $progress = new ProgressByRatio(Status::make(), [], 1, $precision);
+        $this->assertSame($precision, $progress->getPrecision());
     }
 
     /** @return array<string, mixed[]> */
@@ -65,9 +65,8 @@ class ProgressByRatioTest extends TestCase
      */
     public function testInvalidRatio(float $ratio): void
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageMatches('/.*ratio.*/i');
-        new ProgressByRatio(Status::make(), [], $ratio, 2);
+        $progressByRatio = new ProgressByRatio(Status::make(), [], $ratio, 2);
+        $this->assertEqualsWithDelta(0.01, $progressByRatio->getRatio(), 0.001);
     }
 
     public function testShouldNotifyChangePossitive(): void
