@@ -11,7 +11,7 @@ class ObserverCallableTest extends TestCase
 {
     public function testConstructor()
     {
-        $callable = function () {
+        $callable = function (): void {
             return;
         };
         $observer = new ObserverCallable($callable);
@@ -24,7 +24,7 @@ class ObserverCallableTest extends TestCase
         $subject = new Subject();
         $expectedMessage = 'This is the expected message';
         $retrievedMessage = '';
-        $callable = function (\SplSubject $subject) use (&$retrievedMessage) {
+        $callable = function (\SplSubject $subject) use (&$retrievedMessage): void {
             /* @var Subject $subject */
             $retrievedMessage = $subject->foo;
         };

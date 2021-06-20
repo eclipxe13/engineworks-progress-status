@@ -35,7 +35,7 @@ abstract class AbstractSplSubject implements \SplSubject
     /**
      * @return ObserversSet|\SplObserver[]
      */
-    protected function getObservers()
+    protected function getObservers(): \EngineWorks\ProgressStatus\ObserversSet
     {
         return $this->observers;
     }

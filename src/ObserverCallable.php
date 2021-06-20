@@ -28,7 +28,7 @@ class ObserverCallable implements \SplObserver
     /**
      * @return callable
      */
-    public function getCallable()
+    public function getCallable(): callable
     {
         return $this->callable;
     }

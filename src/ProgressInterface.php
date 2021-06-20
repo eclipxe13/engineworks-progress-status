@@ -9,7 +9,7 @@ interface ProgressInterface extends \SplSubject
      * Return the current progress status
      * @return Status
      */
-    public function getStatus();
+    public function getStatus(): Status;
 
     /**
      * Increase the progress
@@ -18,7 +18,7 @@ interface ProgressInterface extends \SplSubject
      * @param int|float|null $increase
      * @return void
      */
-    public function increase($message = null, $increase = 1);
+    public function increase(string $message = null, $increase = 1);
 
     /**
      * Update the status with this values
@@ -31,11 +31,11 @@ interface ProgressInterface extends \SplSubject
      * @return void
      */
     public function update(
-        $message = null,
+        string $message = null,
         $value = null,
         $total = null,
-        $startTime = null,
-        $current = null
+        int $startTime = null,
+        int $current = null
     );
 
     /**
@@ -45,5 +45,5 @@ interface ProgressInterface extends \SplSubject
      * @param Status $newStatus
      * @return bool
      */
-    public function shouldNotifyChange(Status $current, Status $newStatus);
+    public function shouldNotifyChange(Status $current, Status $newStatus): bool;
 }

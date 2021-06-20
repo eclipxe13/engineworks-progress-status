@@ -22,6 +22,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(\Rector\PHPUnit\Set\PHPUnitSetList::PHPUNIT_80);
     $containerConfigurator->import(\Rector\PHPUnit\Set\PHPUnitSetList::PHPUNIT_90);
     $containerConfigurator->import(\Rector\PHPUnit\Set\PHPUnitSetList::PHPUNIT_91);
+    $containerConfigurator->import(SetList::TYPE_DECLARATION);
+    $containerConfigurator->import(SetList::TYPE_DECLARATION_STRICT);
+
+    // Skip
+    $parameters->set(Option::SKIP, [
+        \Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector::class
+    ]);
 
     // get services (needed for register a single rule)
     // $services = $containerConfigurator->services();

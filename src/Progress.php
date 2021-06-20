@@ -24,23 +24,23 @@ class Progress extends AbstractSplSubject implements ProgressInterface
         $this->notify();
     }
 
-    public function getStatus()
+    public function getStatus(): Status
     {
         return $this->status;
     }
 
-    public function increase($message = null, $increase = 1)
+    public function increase(string $message = null, $increase = 1): void
     {
         $this->update($message, $this->status->getValue() + $increase);
     }
 
     public function update(
-        $message = null,
+        string $message = null,
         $value = null,
         $total = null,
-        $startTime = null,
-        $current = null
-    ) {
+        int $startTime = null,
+        int $current = null
+    ): void {
         $newStatus = new Status(
             $current ?? time(),
             $startTime ?? $this->status->getStart(),
@@ -55,7 +55,7 @@ class Progress extends AbstractSplSubject implements ProgressInterface
         }
     }
 
-    public function shouldNotifyChange(Status $currentStatus, Status $newStatus)
+    public function shouldNotifyChange(Status $currentStatus, Status $newStatus): bool
     {
         return ($currentStatus->getValue() != $newStatus->getValue())
             || ($currentStatus->getMessage() != $newStatus->getMessage())

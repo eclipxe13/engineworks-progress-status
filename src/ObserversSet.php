@@ -23,7 +23,7 @@ class ObserversSet implements \Countable, \Iterator
         $this->observers->detach($observer);
     }
 
-    public function count()
+    public function count(): int
     {
         return $this->observers->count();
     }
@@ -43,7 +43,7 @@ class ObserversSet implements \Countable, \Iterator
         return $this->observers->key();
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return $this->observers->valid();
     }

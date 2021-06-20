@@ -29,7 +29,7 @@ class Status
      * @param int $total
      * @param string $message
      */
-    public function __construct($current, $start, $value, $total, $message)
+    public function __construct(int $current, int $start, int $value, int $total, string $message)
     {
         $this->current = $current;
         $this->start = $start;
@@ -48,7 +48,7 @@ class Status
      * @param int|null $current if null then uses the value of time()
      * @return Status
      */
-    public static function make($total = 0, $message = '', $value = 0, $startTime = null, $current = null)
+    public static function make(int $total = 0, string $message = '', int $value = 0, int $startTime = null, int $current = null): Status
     {
         $now = time();
         return new self($current ? : $now, $startTime ? : $now, $value, $total, $message);
@@ -57,7 +57,7 @@ class Status
     /**
      * @return int
      */
-    public function getStart()
+    public function getStart(): int
     {
         return $this->start;
     }
@@ -81,7 +81,7 @@ class Status
     /**
      * @return int
      */
-    public function getCurrent()
+    public function getCurrent(): int
     {
         return $this->current;
     }
@@ -89,7 +89,7 @@ class Status
     /**
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->message;
     }
@@ -111,7 +111,7 @@ class Status
      *
      * @return float
      */
-    public function getRatio()
+    public function getRatio(): float
     {
         if ($this->total == 0) {
             return 0.0;
@@ -132,7 +132,7 @@ class Status
     /**
      * @return int
      */
-    public function getEstimatedTimeOfEnd()
+    public function getEstimatedTimeOfEnd(): ?int
     {
         $speed = $this->getSpeed();
         $remain = $this->getRemain();
@@ -142,14 +142,14 @@ class Status
         if (abs($speed) < 0.0001) {
             return null;
         }
-        return $this->current + round($remain * $speed, 0);
+        return $this->current + (int) round($remain * $speed, 0);
     }
 
     /**
      *
      * @return int
      */
-    public function getSecondsElapsed()
+    public function getSecondsElapsed(): int
     {
         return $this->current - $this->start;
     }
@@ -159,7 +159,7 @@ class Status
      *
      * @return \DateInterval
      */
-    public function getIntervalElapsed()
+    public function getIntervalElapsed(): \DateInterval
     {
         return (new \DateTimeImmutable('@' . $this->start))->diff(new \DateTimeImmutable('@' . $this->current));
     }

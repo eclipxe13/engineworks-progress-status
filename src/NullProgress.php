@@ -18,12 +18,12 @@ class NullProgress implements ProgressInterface
         $this->status = $status ? : Status::make();
     }
 
-    public function getStatus()
+    public function getStatus(): Status
     {
         return $this->status;
     }
 
-    public function increase($message = null, $increase = 1)
+    public function increase(string $message = null, $increase = 1): void
     {
     }
 
@@ -32,15 +32,15 @@ class NullProgress implements ProgressInterface
      * @codeCoverageIgnore null implementation
      */
     public function update(
-        $message = null,
+        string $message = null,
         $value = null,
         $total = null,
-        $startTime = null,
-        $current = null
-    ) {
+        int $startTime = null,
+        int $current = null
+    ): void {
     }
 
-    public function shouldNotifyChange(Status $current, Status $newStatus)
+    public function shouldNotifyChange(Status $current, Status $newStatus): bool
     {
         return false;
     }
@@ -49,7 +49,7 @@ class NullProgress implements ProgressInterface
      * @inheritdoc
      * @codeCoverageIgnore null implementation
      */
-    public function attach(SplObserver $observer)
+    public function attach(SplObserver $observer): void
     {
     }
 
@@ -57,7 +57,7 @@ class NullProgress implements ProgressInterface
      * @inheritdoc
      * @codeCoverageIgnore null implementation
      */
-    public function detach(SplObserver $observer)
+    public function detach(SplObserver $observer): void
     {
     }
 
@@ -65,7 +65,7 @@ class NullProgress implements ProgressInterface
      * @inheritdoc
      * @codeCoverageIgnore null implementation
      */
-    public function notify()
+    public function notify(): void
     {
     }
 }

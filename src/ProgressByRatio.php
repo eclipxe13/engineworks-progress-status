@@ -19,14 +19,14 @@ class ProgressByRatio extends Progress
      * @param float $ratio
      * @param int $precision
      */
-    public function __construct(Status $status = null, array $observers = [], $ratio = 0.01, $precision = 2)
+    public function __construct(Status $status = null, array $observers = [], float $ratio = 0.01, int $precision = 2)
     {
         parent::__construct($status, $observers);
         $this->setPrecision($precision);
         $this->setRatio($ratio);
     }
 
-    public function shouldNotifyChange(Status $currentStatus, Status $newStatus)
+    public function shouldNotifyChange(Status $currentStatus, Status $newStatus): bool
     {
         $current = (int) ceil(round($currentStatus->getRatio(), $this->precision) / $this->ratio);
         $new = (int) ceil(round($newStatus->getRatio(), $this->precision) / $this->ratio);
@@ -36,7 +36,7 @@ class ProgressByRatio extends Progress
     /**
      * @return float
      */
-    public function getRatio()
+    public function getRatio(): float
     {
         return $this->ratio;
     }
@@ -44,7 +44,7 @@ class ProgressByRatio extends Progress
     /**
      * @return int
      */
-    public function getPrecision()
+    public function getPrecision(): int
     {
         return $this->precision;
     }
@@ -52,7 +52,7 @@ class ProgressByRatio extends Progress
     /**
      * @param float $ratio
      */
-    protected function setRatio($ratio)
+    protected function setRatio(float $ratio): void
     {
         if (! is_int($ratio) && ! is_float($ratio)) {
             throw new \InvalidArgumentException('Ratio is not a float value');
@@ -67,7 +67,7 @@ class ProgressByRatio extends Progress
     /**
      * @param int $precision
      */
-    protected function setPrecision($precision)
+    protected function setPrecision(int $precision): void
     {
         if (! is_int($precision) || 0 === $precision) {
             throw new \InvalidArgumentException('Precision must be an positive integer greater or equals to zero');

@@ -27,9 +27,9 @@ class ProgressByRatioTest extends TestCase
         $this->assertSame($precision, $progress->getPrecision());
     }
 
-    public function providerInvalidPrecision()
+    public function providerInvalidPrecision(): array
     {
-        return [[0], [-1], [0.1], [''], [null], [false]];
+        return [[0], [-1]];
     }
 
     /**
@@ -43,9 +43,9 @@ class ProgressByRatioTest extends TestCase
         new ProgressByRatio(Status::make(), [], 0.1, $precision);
     }
 
-    public function providerInvalidRatio()
+    public function providerInvalidRatio(): array
     {
-        return [[0], [-1], [0.0001], [0.004], [''], [null], [false]];
+        return [[0], [-1], [0.0001], [0.004]];
     }
 
     /**

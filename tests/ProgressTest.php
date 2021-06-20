@@ -26,8 +26,8 @@ class ProgressTest extends TestCase
 
     public function testConstructWithValues()
     {
-        $start = new \DateTimeImmutable('2017-01-13 15:00:00');
-        $current = new \DateTimeImmutable('2017-01-13 15:01:00');
+        $start = strtotime('2017-01-13 15:00:00');
+        $current = strtotime('2017-01-13 15:01:00');
         $total = 5;
         $message = 'init';
         $value = 1;
@@ -60,8 +60,8 @@ class ProgressTest extends TestCase
 
     public function testUpdateWithNoValues()
     {
-        $start = new \DateTimeImmutable('2017-01-13 15:00:00');
-        $current = new \DateTimeImmutable('2017-01-13 15:01:00');
+        $start = strtotime('2017-01-13 15:00:00');
+        $current = strtotime('2017-01-13 15:01:00');
         $total = 5;
         $message = 'init';
         $value = 1;

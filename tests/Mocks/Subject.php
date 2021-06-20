@@ -7,9 +7,12 @@ use EngineWorks\ProgressStatus\AbstractSplSubject;
 
 class Subject extends AbstractSplSubject
 {
+    /**
+     * @var string
+     */
     public $foo = '';
 
-    public function exposeObservers()
+    public function exposeObservers(): \EngineWorks\ProgressStatus\ObserversSet
     {
         return parent::getObservers();
     }
