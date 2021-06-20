@@ -19,12 +19,12 @@
     },
     "autoload": {
         "psr-4": {
-            "EngineWorks\\ProgressStatus\\": "src/EngineWorks/ProgressStatus/"
+            "EngineWorks\\ProgressStatus\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\EngineWorks\\ProgressStatus\\": "tests/EngineWorks/ProgressStatus/"
+            "EngineWorks\\ProgressStatus\\Tests\\": "tests/"
         }
     },
     "scripts": {
