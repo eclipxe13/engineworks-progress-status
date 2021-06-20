@@ -9,6 +9,9 @@ use DateTimeImmutable;
 
 class Status
 {
+    /** This is the minumum speed before declare undefined ETA (1 day) */
+    private const MINIMUM_SPEED = 1 / 86400;
+
     /** @var int */
     private $value;
 
@@ -137,10 +140,11 @@ class Status
         if (0 === $remain) {
             return time();
         }
-        if (abs($speed) < 0.0001) {
+        $minimumSpeed = self::MINIMUM_SPEED;
+        if (abs($speed) <= $minimumSpeed) {
             return null;
         }
-        return $this->current + (int) round($remain * $speed, 0);
+        return $this->current + intval($remain / $speed);
     }
 
     public function getSecondsElapsed(): int
