@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace EngineWorks\ProgressStatus;
 
 use SplObserver;
+use SplSubject;
 
-class Progress extends AbstractSplSubject implements ProgressInterface
+class Progress implements SplSubject, ProgressInterface
 {
+    use SplSubjectWithObserversTrait;
+
     /** @var Status */
     private $status;
 
@@ -19,7 +22,7 @@ class Progress extends AbstractSplSubject implements ProgressInterface
      */
     public function __construct(Status $initialStatus = null, iterable $observers = [])
     {
-        parent::__construct();
+        $this->constructSplSubjectWithObservers();
         $this->status = $initialStatus ?: Status::make();
         foreach ($observers as $observer) {
             $this->attach($observer);
