@@ -66,7 +66,24 @@ according to your specific needs.
 
 This is a specialized progress (extending `Progress` class) that notify only when the radio (value vs total)
 is modified, With a ratio of 0.01 it will not update more than 100 times.
-If you want to notify every 5%, set the ratio to 0.05. 
+If you want to notify every 5%, set the ratio to 0.05.
+
+## PHP Support
+
+This library is compatible with at least the oldest [PHP Supported Version](https://php.net/supported-versions.php)
+with **active** support. Please, try to use PHP full potential.
+
+We adhere to [Semantic Versioning](https://semver.org/).
+We will not introduce any compatibility backwards change on major versions.
+
+Internal classes (using `@internal` annotation) are not part of this agreement
+as they must only exist inside this project. Do not use them in your project.
+
+### Library versions
+
+- Version `1.x` is EOL. It will not receive any updates. It was compatible with PHP from 5.6 to PHP 8.0.
+
+- Version `2.x` is current. It is compatible with PHP 7.3 and higher. 
 
 ## Contributing
 
@@ -77,7 +94,6 @@ and don't forget to take a look in the [TODO][] and [CHANGELOG][] files.
 
 The EngineWorks\Templates library is copyright © [Carlos C Soto](https://eclipxe.com.mx/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
-
 
 
 [contributing]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/CONTRIBUTING.md
