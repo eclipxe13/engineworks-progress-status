@@ -35,6 +35,15 @@ $pg->attach($otherObserver);
 
 // This will fire the method update on $observer and $otherObserver with $pg as subject
 $pg->increase('Step 1 done');
+
+$status = $pg->getStatus();
+echo sprintf(
+    "Step %s of %s completed (%0.2f %%) ETA: %s\n",
+    $status->getCurrent(),
+    $status->getTotal(),
+    $status->getRatio(),
+    $status->getEstimatedTimeOfEnd() ? date('c', $status->getEstimatedTimeOfEnd()) : '--stalled--',
+);
 ```
 
 ## EngineWorks\ProgressStatus\Status
