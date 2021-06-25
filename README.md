@@ -9,9 +9,9 @@
 [![Total Downloads][badge-downloads]][downloads]
 
 Use this library to track progress on long tasks. This library uses the SPL clasess for Subject Observer pattern.
-The subject is the Progress object, the observer get notified when the status changes.
+The subject is the Progress object, the observers get notified when the status changes.
 
-# Instalation
+# Installation
 
 Use composer to install this library `composer require eclipxe/engineworks-progress-status`
 
@@ -48,11 +48,11 @@ echo sprintf(
 ## EngineWorks\ProgressStatus\Status
 
 This is an immutable class that stores:
-- start: DateTime object when the complete progress starts
-- current: DateTime object to set the current (last updated) time
-- total: count of expected tasks
-- value: current value of the progress
-- message: current (last updated) status message
+- `start` - DateTime object when the complete progress starts
+- `current` - DateTime object to set the current (last updated) time
+- `total` - count of expected tasks
+- `value` - current value of the progress
+- `message` - current (last updated) status message
 
 ## EngineWorks\ProgressStatus\ProgressInterface
 
@@ -64,16 +64,17 @@ This is the contract for a progress class. it contains a few methods to be imple
 
 ## EngineWorks\ProgressStatus\Progress
 
-This is a basic implementation of the `ProgressInterface`interface ready to use. It will notify to all the
-observer on any change.
+This is a basic implementation of the `ProgressInterface` interface ready to use.
+It will notify to all the observer on any change.
 
-You can use this class as a template to set different ways to notify, just override the shouldNotifyChange method
-according to your specific needs. 
+You can use this class as a template to set different ways to notify,
+just override the `shouldNotifyChange` method according to your specific needs. 
 
 ## EngineWorks\ProgressStatus\ProgressByRatio
 
-This is a specialized progress (extending `Progress` class) that notify only when the radio (value vs total)
-is modified, With a ratio of 0.01 it will not update more than 100 times.
+This is a specialized progress (extending `Progress` class) that notify only
+when the radio (`value` vs `total`) is modified.
+With a ratio of 0.01 it will not update more than 100 times.
 If you want to notify every 5%, set the ratio to 0.05.
 
 ## PHP Support
