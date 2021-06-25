@@ -1,10 +1,24 @@
 # Changelog
 
-## v2.0.0 UNRELEASED
+## v2.0.0 2021-06-24 22:47
+
+Behavior differences with `v1.0.4`:
+
+- Bug fix: `Status::getEstimatedTimeOfEnd()` have incorrect results.
+- `Status::getEstimatedTimeOfEnd()` will return null when speed is lower than 1 step per day.
+- Class `AbstractSplSubject` has been removed, use `SplSubjectWithObserversTrait` instead.
+
+Additional changes included on this release:
 
 - Bump PHP version to 7.3.
-- README: Fix usage example and rewording.
-- LICENCE: Update license year to 2021.
+- Upgrade to PHPUnit 9.5.
+- README: Improve usage example and rewording.
+- README: Add PHP Support section.
+- LICENSE: Update license year to 2021.
+- CI: Migrate CI from Travis-CI to GitHub Actions
+- CI: Uses `phpcs`, `php-cs-fixer`, `phpunit`, `phpstan`, `psalm` and `infection`.
+- Internal: Move source files and tests to standard locations.
+- Development: Add development tools and composer scripts.
 
 ## v1.0.4 2017-02-09 14:14
 
