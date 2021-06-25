@@ -49,6 +49,7 @@ class ObserversSet implements Countable, Iterator
 
     public function next(): void
     {
+        /** @infection-ignore-all if ommited create an infinite loop */
         $this->observers->next();
     }
 

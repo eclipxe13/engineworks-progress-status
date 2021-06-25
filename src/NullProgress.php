@@ -8,6 +8,8 @@ use SplObserver;
 
 /**
  * NullProgress is a null object implementation of ProgressInterface.
+ *
+ * @infection-ignore-all
  */
 class NullProgress implements ProgressInterface
 {
