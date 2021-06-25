@@ -5,7 +5,6 @@
 [![Software License][badge-license]][license]
 [![Build Status][badge-build]][build]
 [![Scrutinizer][badge-quality]][quality]
-[![SensioLabsInsight][badge-sensiolabs]][sensiolabs]
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
@@ -101,28 +100,26 @@ and don't forget to take a look in the [TODO][] and [CHANGELOG][] files.
 
 ## Copyright and License
 
-The EngineWorks\Templates library is copyright © [Carlos C Soto](https://eclipxe.com.mx/)
+The `eclipxe/engineworks-progress-status` library is copyright © [Carlos C Soto](https://eclipxe.com.mx/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
 
 
-[contributing]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/CONTRIBUTING.md
-[todo]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/TODO.md
-[changelog]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/CHANGELOG.md
+[contributing]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/CONTRIBUTING.md
+[todo]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/TODO.md
+[changelog]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/CHANGELOG.md
 
 [source]: https://github.com/eclipxe13/engineworks-progress-status
 [release]: https://github.com/eclipxe13/engineworks-progress-status/releases
-[license]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/LICENSE
-[build]: https://travis-ci.org/eclipxe13/engineworks-progress-status
+[license]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/LICENSE
+[build]: https://github.com/eclipxe13/engineworks-progress-status/actions/workflows/build.yml?query=branch:main
 [quality]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/
-[sensiolabs]: https://insight.sensiolabs.com/projects/84b34ced-1d35-4531-86dc-4044532540cd
-[coverage]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/?branch=master
+[coverage]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/code-structure/main/code-coverage
 [downloads]: https://packagist.org/packages/eclipxe/engineworks-progress-status
 
-[badge-source]: http://img.shields.io/badge/source-eclipxe13/engineworks--templates-blue.svg?style=flat-square
+[badge-source]: https://img.shields.io/badge/source-eclipxe/engineworks--progress--status-blue.svg?style=flat-square
 [badge-release]: https://img.shields.io/github/release/eclipxe13/engineworks-progress-status.svg?style=flat-square
-[badge-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[badge-build]: https://img.shields.io/travis/eclipxe13/engineworks-progress-status.svg?style=flat-square
-[badge-quality]: https://img.shields.io/scrutinizer/g/eclipxe13/engineworks-progress-status/master.svg?style=flat-square
-[badge-sensiolabs]: https://img.shields.io/sensiolabs/i/84b34ced-1d35-4531-86dc-4044532540cd.svg?style=flat-square
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/eclipxe13/engineworks-progress-status/master.svg?style=flat-square
+[badge-license]: https://img.shields.io/github/license/eclipxe13/engineworks-progress-status.svg?style=flat-square
+[badge-build]: https://img.shields.io/github/workflow/status/eclipxe13/engineworks-progress-status/build/main?style=flat-square
+[badge-quality]: https://img.shields.io/scrutinizer/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/eclipxe/engineworks-progress-status.svg?style=flat-square
