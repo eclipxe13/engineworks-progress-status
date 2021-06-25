@@ -1,21 +1,27 @@
 <?php
-namespace Tests\EngineWorks\ProgressStatus;
 
+declare(strict_types=1);
+
+namespace EngineWorks\ProgressStatus\Tests;
+
+use Countable;
 use EngineWorks\ProgressStatus\ObserversSet;
+use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
+use Iterator;
 use PHPUnit\Framework\TestCase;
-use Tests\EngineWorks\ProgressStatus\Mocks\Observer;
+use SplObserver;
 
 class ObserversSetTest extends TestCase
 {
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $observers = new ObserversSet();
-        $this->assertInstanceOf(\Countable::class, $observers);
-        $this->assertInstanceOf(\Iterator::class, $observers);
+        $this->assertInstanceOf(Countable::class, $observers);
+        $this->assertInstanceOf(Iterator::class, $observers);
         $this->assertCount(0, $observers);
     }
 
-    public function testAttatchDetach()
+    public function testAttatchDetach(): void
     {
         $observer = new Observer();
         $observers = new ObserversSet();
@@ -36,7 +42,7 @@ class ObserversSetTest extends TestCase
         $this->assertCount(1, $observers);
     }
 
-    public function testIterator()
+    public function testIterator(): void
     {
         // populate
         $count = 5;
@@ -50,7 +56,7 @@ class ObserversSetTest extends TestCase
         $elements = 0;
         foreach ($observers as $key => $observer) {
             $this->assertEquals($elements, $key);
-            $this->assertInstanceOf(\SplObserver::class, $observer);
+            $this->assertInstanceOf(SplObserver::class, $observer);
             $elements = $elements + 1;
         }
         $this->assertSame($count, $elements);

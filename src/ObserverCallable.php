@@ -1,9 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 namespace EngineWorks\ProgressStatus;
 
+use SplObserver;
 use SplSubject;
 
-class ObserverCallable implements \SplObserver
+class ObserverCallable implements SplObserver
 {
     /** @var callable */
     private $callable;
@@ -18,7 +22,7 @@ class ObserverCallable implements \SplObserver
         $this->callable = $callable;
     }
 
-    public function update(SplSubject $subject)
+    public function update(SplSubject $subject): void
     {
         call_user_func($this->callable, $subject);
     }
@@ -26,7 +30,7 @@ class ObserverCallable implements \SplObserver
     /**
      * @return callable
      */
-    public function getCallable()
+    public function getCallable(): callable
     {
         return $this->callable;
     }

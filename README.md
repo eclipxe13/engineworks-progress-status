@@ -5,12 +5,11 @@
 [![Software License][badge-license]][license]
 [![Build Status][badge-build]][build]
 [![Scrutinizer][badge-quality]][quality]
-[![SensioLabsInsight][badge-sensiolabs]][sensiolabs]
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
 Use this library to track progress on long tasks. This library uses the SPL clasess for Subject Observer pattern.
-The subject is the Progress object, the observer get notified when the status change.
+The subject is the Progress object, the observer get notified when the status changes.
 
 # Instalation
 
@@ -19,19 +18,31 @@ Use composer to install this library `composer require eclipxe/engineworks-progr
 # Basic use
 
 ```php
-<?php namespace EngineWorks\ProgressStatus;
-
-/* @var \SplObserver $observer */
+<?php declare(strict_types=1); 
 
 // Create a new progress with the status of 10 total steps and the current message 'Starting...' 
+use EngineWorks\ProgressStatus\Progress;
+use EngineWorks\ProgressStatus\Status;
+
+/* @var SplObserver $observer */
+
 $pg = new Progress(Status::make(10, 'Starting...'), [$observer]);
 
-/* @var \SplObserver $otherObserver */
+/* @var SplObserver $otherObserver */
 // add other observer to the progress
 $pg->attach($otherObserver);
 
 // This will fire the method update on $observer and $otherObserver with $pg as subject
 $pg->increase('Step 1 done');
+
+$status = $pg->getStatus();
+echo sprintf(
+    "Step %s of %s completed (%0.2f %%) ETA: %s\n",
+    $status->getCurrent(),
+    $status->getTotal(),
+    $status->getRatio(),
+    $status->getEstimatedTimeOfEnd() ? date('c', $status->getEstimatedTimeOfEnd()) : '--stalled--',
+);
 ```
 
 ## EngineWorks\ProgressStatus\Status
@@ -46,10 +57,10 @@ This is an immutable class that stores:
 ## EngineWorks\ProgressStatus\ProgressInterface
 
 This is the contract for a progress class. it contains a few methods to be implemented:
-- `getStatus`: Retrieve the current status of the progress 
-- `increase`: Change the message and add a value to the current status  
-- `update`: Change the full status 
-- `shouldNotifyChange`: Compare two status to know when should notify the observers 
+- `getStatus` - Retrieve the current status of the progress 
+- `increase` - Change the message and add a value to the current status  
+- `update` - Change the full status 
+- `shouldNotifyChange` - Compare two status to know when should notify the observers 
 
 ## EngineWorks\ProgressStatus\Progress
 
@@ -61,9 +72,26 @@ according to your specific needs.
 
 ## EngineWorks\ProgressStatus\ProgressByRatio
 
-This is an specialized progress (extending `Progress` class) that notify only when the radio (value vs total)
-is modified, With a ratio of 0.01 it will no update more than 100 times.
-If you want to notify every 5% set the ratio to 0.05. 
+This is a specialized progress (extending `Progress` class) that notify only when the radio (value vs total)
+is modified, With a ratio of 0.01 it will not update more than 100 times.
+If you want to notify every 5%, set the ratio to 0.05.
+
+## PHP Support
+
+This library is compatible with at least the oldest [PHP Supported Version](https://php.net/supported-versions.php)
+with **active** support. Please, try to use PHP full potential.
+
+We adhere to [Semantic Versioning](https://semver.org/).
+We will not introduce any compatibility backwards change on major versions.
+
+Internal classes (using `@internal` annotation) are not part of this agreement
+as they must only exist inside this project. Do not use them in your project.
+
+### Library versions
+
+- Version `1.x` is EOL. It will not receive any updates. It was compatible with PHP from 5.6 to PHP 8.0.
+
+- Version `2.x` is current. It is compatible with PHP 7.3 and higher. 
 
 ## Contributing
 
@@ -72,29 +100,26 @@ and don't forget to take a look in the [TODO][] and [CHANGELOG][] files.
 
 ## Copyright and License
 
-The EngineWorks\Templates library is copyright © [Carlos C Soto](https://eclipxe.com.mx/)
+The `eclipxe/engineworks-progress-status` library is copyright © [Carlos C Soto](https://eclipxe.com.mx/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
 
 
-
-[contributing]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/CONTRIBUTING.md
-[todo]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/TODO.md
-[changelog]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/CHANGELOG.md
+[contributing]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/CONTRIBUTING.md
+[todo]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/TODO.md
+[changelog]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/CHANGELOG.md
 
 [source]: https://github.com/eclipxe13/engineworks-progress-status
 [release]: https://github.com/eclipxe13/engineworks-progress-status/releases
-[license]: https://github.com/eclipxe13/engineworks-progress-status/blob/master/LICENSE
-[build]: https://travis-ci.org/eclipxe13/engineworks-progress-status
+[license]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/LICENSE
+[build]: https://github.com/eclipxe13/engineworks-progress-status/actions/workflows/build.yml?query=branch:main
 [quality]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/
-[sensiolabs]: https://insight.sensiolabs.com/projects/84b34ced-1d35-4531-86dc-4044532540cd
-[coverage]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/?branch=master
+[coverage]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/code-structure/main/code-coverage
 [downloads]: https://packagist.org/packages/eclipxe/engineworks-progress-status
 
-[badge-source]: http://img.shields.io/badge/source-eclipxe13/engineworks--templates-blue.svg?style=flat-square
+[badge-source]: https://img.shields.io/badge/source-eclipxe/engineworks--progress--status-blue.svg?style=flat-square
 [badge-release]: https://img.shields.io/github/release/eclipxe13/engineworks-progress-status.svg?style=flat-square
-[badge-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[badge-build]: https://img.shields.io/travis/eclipxe13/engineworks-progress-status.svg?style=flat-square
-[badge-quality]: https://img.shields.io/scrutinizer/g/eclipxe13/engineworks-progress-status/master.svg?style=flat-square
-[badge-sensiolabs]: https://img.shields.io/sensiolabs/i/84b34ced-1d35-4531-86dc-4044532540cd.svg?style=flat-square
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/eclipxe13/engineworks-progress-status/master.svg?style=flat-square
+[badge-license]: https://img.shields.io/github/license/eclipxe13/engineworks-progress-status.svg?style=flat-square
+[badge-build]: https://img.shields.io/github/workflow/status/eclipxe13/engineworks-progress-status/build/main?style=flat-square
+[badge-quality]: https://img.shields.io/scrutinizer/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/eclipxe/engineworks-progress-status.svg?style=flat-square

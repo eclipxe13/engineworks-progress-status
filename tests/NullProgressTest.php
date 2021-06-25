@@ -1,5 +1,8 @@
 <?php
-namespace Tests\EngineWorks\ProgressStatus;
+
+declare(strict_types=1);
+
+namespace EngineWorks\ProgressStatus\Tests;
 
 use EngineWorks\ProgressStatus\NullProgress;
 use EngineWorks\ProgressStatus\ProgressInterface;
@@ -8,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class NullProgressTest extends TestCase
 {
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $progress = new NullProgress();
         $this->assertInstanceOf(ProgressInterface::class, $progress);
@@ -16,14 +19,14 @@ class NullProgressTest extends TestCase
         $this->assertSame(false, $progress->shouldNotifyChange($progress->getStatus(), Status::make(10)));
     }
 
-    public function testConstructPreservesTheStatus()
+    public function testConstructPreservesTheStatus(): void
     {
         $status = Status::make();
         $progress = new NullProgress($status);
         $this->assertSame($status, $progress->getStatus());
     }
 
-    public function testIncreaseDoesNotChangeTheStatus()
+    public function testIncreaseDoesNotChangeTheStatus(): void
     {
         $status = Status::make();
         $progress = new NullProgress($status);
