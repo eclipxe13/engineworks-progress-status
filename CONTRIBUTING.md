@@ -65,14 +65,11 @@ When you do begin working on your feature, here are some guidelines to consider:
 This project uses different development tools to ensure code style, test and quality (using code analyzers).
 
 ```shell
-# install project direct dependences
-composer install
+# install project direct dependencies
+composer update
 
-# install development tools dependences (using composer script)
-composer dev:install
-
-# install development tools dependences (using installer script)
-bash develop/install-development-tools
+# install development tools dependencies
+phive update
 ```
 
 ## Check the code style
