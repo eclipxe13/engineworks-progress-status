@@ -11,6 +11,10 @@
             "homepage": "https://eclipxe.com.mx/"
         }
     ],
+    "support": {
+        "source": "https://github.com/eclipxe13/engineworks-progress-status",
+        "issues": "https://github.com/eclipxe13/engineworks-progress-status/issues"
+    },
     "require": {
         "php": ">=7.3"
     },
