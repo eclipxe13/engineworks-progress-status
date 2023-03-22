@@ -10,15 +10,4 @@
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
-
-    <issueHandlers>
-        <UnnecessaryVarAnnotation>
-            <!--
-            UnnecessaryVarAnnotation - src/ObserversSet.php:43:17 - The @var SplObserver annotation for $current is unnecessary
-            -->
-            <errorLevel type="suppress">
-                <directory name="src/"/>
-            </errorLevel>
-        </UnnecessaryVarAnnotation>
-    </issueHandlers>
 </psalm>

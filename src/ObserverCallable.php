@@ -9,13 +9,13 @@ use SplSubject;
 
 class ObserverCallable implements SplObserver
 {
-    /** @var callable */
+    /** @var callable(SplSubject):void */
     private $callable;
 
     /**
      * ObserverCallable constructor.
      *
-     * @param callable $callable
+     * @param callable(SplSubject):void $callable
      */
     public function __construct(callable $callable)
     {
@@ -28,7 +28,7 @@ class ObserverCallable implements SplObserver
     }
 
     /**
-     * @return callable
+     * @return callable(SplSubject):void
      */
     public function getCallable(): callable
     {

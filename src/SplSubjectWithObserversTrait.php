@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
+use LogicException;
 use SplObserver;
+use SplSubject;
 
 /**
  * Implementation of SplSubject interface using the ObserversSet object storage.
- *
- * @implements \SplSubject<\SplObserver>
  */
 trait SplSubjectWithObserversTrait
 {
@@ -33,6 +33,10 @@ trait SplSubjectWithObserversTrait
 
     public function notify(): void
     {
+        if (! $this instanceof SplSubject) {
+            /** @psalm-var object $this Psalm identify $this as empty-mixed */
+            throw new LogicException(sprintf('Object %s is not an instance of SplSubject', get_class($this)));
+        }
         foreach ($this->getObservers() as $observer) {
             $observer->update($this);
         }

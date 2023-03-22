@@ -9,7 +9,7 @@ use DateTimeImmutable;
 
 class Status
 {
-    /** This is the minumum speed before declare undefined ETA (1 day) */
+    /** This is the minimum speed before declare undefined ETA (1 day) */
     private const MINIMUM_SPEED = 1 / 86400;
 
     /** @var int */

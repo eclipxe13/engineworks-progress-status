@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class ProgressByRatioTest extends TestCase
 {
-    public function testConstuctor(): void
+    public function testConstructor(): void
     {
         $ratio = 0.01;
         $precision = 2;
@@ -20,7 +20,7 @@ class ProgressByRatioTest extends TestCase
         $this->assertSame($precision, $progress->getPrecision());
     }
 
-    public function testConstuctorWithValues(): void
+    public function testConstructorWithValues(): void
     {
         $ratio = 0.1;
         $precision = 1;
@@ -49,7 +49,7 @@ class ProgressByRatioTest extends TestCase
         $this->assertSame($precision, $progress->getPrecision());
     }
 
-    /** @return array<string, mixed[]> */
+    /** @return array<string, array<int|float>> */
     public function providerInvalidRatio(): array
     {
         return [
@@ -69,7 +69,7 @@ class ProgressByRatioTest extends TestCase
         $this->assertEqualsWithDelta(0.01, $progressByRatio->getRatio(), 0.001);
     }
 
-    public function testShouldNotifyChangePossitive(): void
+    public function testShouldNotifyChangePositive(): void
     {
         $ratio = 0.05; // 5%
         $precision = 2; // two decimal places

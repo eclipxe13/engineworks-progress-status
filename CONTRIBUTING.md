@@ -9,7 +9,7 @@ By participating in this project and its community, you are expected to uphold t
 ## Team members
 
 * [Carlos C Soto](https://github.com/eclipxe13) - original author and maintainer
-* [GitHub constributors](https://github.com/eclipxe13/engineworks-progress-status/graphs/contributors)
+* [GitHub contributors](https://github.com/eclipxe13/engineworks-progress-status/graphs/contributors)
 
 ## Communication Channels
 
@@ -65,19 +65,16 @@ When you do begin working on your feature, here are some guidelines to consider:
 This project uses different development tools to ensure code style, test and quality (using code analyzers).
 
 ```shell
-# install project direct dependences
-composer install
+# install project direct dependencies
+composer update
 
-# install development tools dependences (using composer script)
-composer dev:install
-
-# install development tools dependences (using installer script)
-bash develop/install-development-tools
+# install development tools dependencies
+phive update
 ```
 
 ## Check the code style
 
-If you are having issues with coding standars use `php-cs-fixer` and `phpcbf`
+If you are having issues with coding standards use `php-cs-fixer` and `phpcbf`
 
 ```shell
 # using composer

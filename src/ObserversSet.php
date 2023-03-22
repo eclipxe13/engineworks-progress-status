@@ -37,23 +37,18 @@ class ObserversSet implements Countable, Iterator
         return $this->observers->count();
     }
 
-    public function current()
+    public function current(): SplObserver
     {
-        /**
-         * @var SplObserver
-         * @noinspection PhpUnnecessaryLocalVariableInspection
-         */
-        $current = $this->observers->current();
-        return $current;
+        return $this->observers->current();
     }
 
     public function next(): void
     {
-        /** @infection-ignore-all if ommited create an infinite loop */
+        /** @infection-ignore-all if omitted create an infinite loop */
         $this->observers->next();
     }
 
-    public function key()
+    public function key(): int
     {
         return $this->observers->key();
     }

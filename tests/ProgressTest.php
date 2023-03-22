@@ -94,8 +94,8 @@ class ProgressTest extends TestCase
         $this->assertEquals($newStatus, $progress->getStatus());
     }
 
-    /** @return array<string, mixed[]> */
-    public function providerShouldNofityChange(): array
+    /** @return array<string, array{bool, Status, Status}> */
+    public function providerShouldNotifyChange(): array
     {
         $now = time();
         return [
@@ -132,8 +132,8 @@ class ProgressTest extends TestCase
         ];
     }
 
-    /** @dataProvider providerShouldNofityChange */
-    public function testShouldNofityChange(bool $expected, Status $first, Status $second): void
+    /** @dataProvider providerShouldNotifyChange */
+    public function testShouldNotifyChange(bool $expected, Status $first, Status $second): void
     {
         $sometime = time() - 1;
         $progress = new Progress(Status::make(2, 'init', 0, $sometime, $sometime));

@@ -8,7 +8,7 @@
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
-Use this library to track progress on long tasks. This library uses the SPL clasess for Subject Observer pattern.
+Use this library to track progress on long tasks. This library uses the SPL classes for Subject Observer pattern.
 The subject is the Progress object, the observers get notified when the status changes.
 
 # Installation
@@ -20,7 +20,7 @@ Use composer to install this library `composer require eclipxe/engineworks-progr
 ```php
 <?php declare(strict_types=1); 
 
-// Create a new progress with the status of 10 total steps and the current message 'Starting...' 
+// Create a new progress instance with the status of 10 total steps and the current message 'Starting...' 
 use EngineWorks\ProgressStatus\Progress;
 use EngineWorks\ProgressStatus\Status;
 
@@ -120,7 +120,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [badge-source]: https://img.shields.io/badge/source-eclipxe/engineworks--progress--status-blue.svg?style=flat-square
 [badge-release]: https://img.shields.io/github/release/eclipxe13/engineworks-progress-status.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/eclipxe13/engineworks-progress-status.svg?style=flat-square
-[badge-build]: https://img.shields.io/github/workflow/status/eclipxe13/engineworks-progress-status/build/main?style=flat-square
+[badge-build]: https://img.shields.io/github/actions/workflow/status/eclipxe13/engineworks-progress-status/build.yml?branch=main&style=flat-square
 [badge-quality]: https://img.shields.io/scrutinizer/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
 [badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/eclipxe/engineworks-progress-status.svg?style=flat-square

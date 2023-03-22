@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus\Tests;
 
+use EngineWorks\ProgressStatus\SplSubjectWithObserversTrait;
 use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
 use EngineWorks\ProgressStatus\Tests\Mocks\Subject;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 
 class SplSubjectWithObserversTraitTest extends TestCase
@@ -53,5 +55,16 @@ class SplSubjectWithObserversTraitTest extends TestCase
         // assert that notification set the subject in the observer double
         $this->assertSame($subject, $firstObserver->subject);
         $this->assertSame($subject, $secondObserver->subject);
+    }
+
+    public function testImplementerNotInstanceOfSplSubject(): void
+    {
+        $implementer = new class () {
+            use SplSubjectWithObserversTrait;
+        };
+
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessageMatches('/^Object .*? is not an instance of SplSubject$/');
+        $implementer->notify();
     }
 }
