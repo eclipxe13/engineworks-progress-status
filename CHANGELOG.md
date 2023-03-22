@@ -2,6 +2,7 @@
 
 ## v2.0.1 2023-03-22
 
+- On `SplSubjectWithObserversTrait::notify()`, check that implementor `$this` is a `SplSubject`.
 - Add return types on `ObserversSet::current()` and `ObserversSet::key()` methods.
 - Update license year.
 - Upgrade Code of Conduct.
