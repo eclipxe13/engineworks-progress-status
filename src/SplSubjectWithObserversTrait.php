@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace EngineWorks\ProgressStatus;
 
 use SplObserver;
+use SplSubject;
 
 /**
  * Implementation of SplSubject interface using the ObserversSet object storage.
  *
- * @implements \SplSubject<\SplObserver>
+ * @implements SplSubject<SplObserver>
  */
 trait SplSubjectWithObserversTrait
 {

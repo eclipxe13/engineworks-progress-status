@@ -17,7 +17,7 @@ class Progress implements SplSubject, ProgressInterface
     /**
      * Progress constructor.
      *
-     * @param Status|null $initialStatus when null it create an empty State using make method
+     * @param Status|null $initialStatus when null it creates an empty State using make method
      * @param iterable<SplObserver> $observers
      */
     public function __construct(Status $initialStatus = null, iterable $observers = [])

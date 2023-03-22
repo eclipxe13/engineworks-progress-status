@@ -21,7 +21,7 @@ class ObserversSetTest extends TestCase
         $this->assertCount(0, $observers);
     }
 
-    public function testAttatchDetach(): void
+    public function testAttachDetach(): void
     {
         $observer = new Observer();
         $observers = new ObserversSet();

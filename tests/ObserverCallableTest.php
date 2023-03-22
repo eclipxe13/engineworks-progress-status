@@ -14,8 +14,7 @@ class ObserverCallableTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $callable = function (): int {
-            return 1;
+        $callable = function (SplSubject $_): void {
         };
         $observer = new ObserverCallable($callable);
         $this->assertInstanceOf(SplObserver::class, $observer);

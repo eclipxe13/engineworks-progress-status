@@ -10,6 +10,7 @@ use SplObserver;
  * NullProgress is a null object implementation of ProgressInterface.
  *
  * @infection-ignore-all
+ * @codeCoverageIgnore Null implementation
  */
 class NullProgress implements ProgressInterface
 {
@@ -32,7 +33,6 @@ class NullProgress implements ProgressInterface
 
     /**
      * @inheritdoc
-     * @codeCoverageIgnore null implementation
      */
     public function update(
         string $message = null,
@@ -48,26 +48,14 @@ class NullProgress implements ProgressInterface
         return false;
     }
 
-    /**
-     * @inheritdoc
-     * @codeCoverageIgnore null implementation
-     */
     public function attach(SplObserver $observer): void
     {
     }
 
-    /**
-     * @inheritdoc
-     * @codeCoverageIgnore null implementation
-     */
     public function detach(SplObserver $observer): void
     {
     }
 
-    /**
-     * @inheritdoc
-     * @codeCoverageIgnore null implementation
-     */
     public function notify(): void
     {
     }
