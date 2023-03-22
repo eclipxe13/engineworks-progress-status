@@ -8,7 +8,7 @@
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
-Use this library to track progress on long tasks. This library uses the SPL clasess for Subject Observer pattern.
+Use this library to track progress on long tasks. This library uses the SPL classes for Subject Observer pattern.
 The subject is the Progress object, the observers get notified when the status changes.
 
 # Installation
@@ -20,7 +20,7 @@ Use composer to install this library `composer require eclipxe/engineworks-progr
 ```php
 <?php declare(strict_types=1); 
 
-// Create a new progress with the status of 10 total steps and the current message 'Starting...' 
+// Create a new progress instance with the status of 10 total steps and the current message 'Starting...' 
 use EngineWorks\ProgressStatus\Progress;
 use EngineWorks\ProgressStatus\Status;
 

@@ -9,7 +9,7 @@ By participating in this project and its community, you are expected to uphold t
 ## Team members
 
 * [Carlos C Soto](https://github.com/eclipxe13) - original author and maintainer
-* [GitHub constributors](https://github.com/eclipxe13/engineworks-progress-status/graphs/contributors)
+* [GitHub contributors](https://github.com/eclipxe13/engineworks-progress-status/graphs/contributors)
 
 ## Communication Channels
 
@@ -74,7 +74,7 @@ phive update
 
 ## Check the code style
 
-If you are having issues with coding standars use `php-cs-fixer` and `phpcbf`
+If you are having issues with coding standards use `php-cs-fixer` and `phpcbf`
 
 ```shell
 # using composer
