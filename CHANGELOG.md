@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.0.2 2024-02-29
+
+- Update coding standards to PSR-12 with new rules.
+- Add PHP 8.3 and PHP 7.3 to test matrix.
+- Update license year to 2024.
+- GitHub Workflows:
+  - Use GitHub Actions version 4.
+  - Run jobs using PHP 8.3.
+  - Show Psalm version before run.
+  - Allow dispatch workflows manually.
+- Add `.editorconfig` configuration file.
+- Run Scrutinizer on PHP 8.3.
+- Upgrade development tools.
+
 ## v2.0.1 2023-03-22
 
 - On `SplSubjectWithObserversTrait::notify()`, check that implementor `$this` is a `SplSubject`.
