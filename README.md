@@ -1,6 +1,7 @@
 # eclipxe/engineworks-progress-status - PHP Progress Status Library (using Subject-Observer)
 
 [![Source Code][badge-source]][source]
+[![Packagist PHP Version Support][badge-php-version]][php-version]
 [![Latest Version][badge-release]][release]
 [![Software License][badge-license]][license]
 [![Build Status][badge-build]][build]
@@ -111,6 +112,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [changelog]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/CHANGELOG.md
 
 [source]: https://github.com/eclipxe13/engineworks-progress-status
+[php-version]: https://packagist.org/packages/eclipxe/engineworks-progress-status
 [release]: https://github.com/eclipxe13/engineworks-progress-status/releases
 [license]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/LICENSE
 [build]: https://github.com/eclipxe13/engineworks-progress-status/actions/workflows/build.yml?query=branch:main
@@ -119,6 +121,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [downloads]: https://packagist.org/packages/eclipxe/engineworks-progress-status
 
 [badge-source]: https://img.shields.io/badge/source-eclipxe/engineworks--progress--status-blue.svg?style=flat-square
+[badge-php-version]: https://img.shields.io/packagist/php-v/eclipxe/engineworks-progress-status?style=flat-square
 [badge-release]: https://img.shields.io/github/release/eclipxe13/engineworks-progress-status.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/eclipxe13/engineworks-progress-status.svg?style=flat-square
 [badge-build]: https://img.shields.io/github/actions/workflow/status/eclipxe13/engineworks-progress-status/build.yml?branch=main&style=flat-square
