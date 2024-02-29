@@ -52,7 +52,7 @@ class Progress implements SplSubject, ProgressInterface
             $startTime ?? $this->status->getStart(),
             $value ?? $this->status->getValue(),
             $total ?? $this->status->getTotal(),
-            $message ?: $this->status->getMessage()
+            $message ?: $this->status->getMessage(),
         );
         $shouldNotifyChange = $this->shouldNotifyChange($this->status, $newStatus);
         $this->status = $newStatus;

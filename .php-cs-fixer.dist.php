@@ -22,8 +22,8 @@ return (new PhpCsFixer\Config())
         'whitespace_after_comma_in_array' => true,
         'no_empty_statement' => true,
         'no_extra_blank_lines' => true,
-        'function_typehint_space' => true,
-        'trailing_comma_in_multiline' => ['after_heredoc' => true, 'elements' => ['arrays']],
+        'type_declaration_spaces' => true,
+        'trailing_comma_in_multiline' => ['after_heredoc' => true, 'elements' => ['arrays', 'match', 'arguments']],
         'no_blank_lines_after_phpdoc' => true,
         'object_operator_without_whitespace' => true,
         'binary_operator_spaces' => true,
@@ -48,6 +48,6 @@ return (new PhpCsFixer\Config())
         PhpCsFixer\Finder::create()
             ->in(__DIR__)
             ->append([__FILE__])
-            ->exclude(['vendor', 'tools', 'build'])
+            ->exclude(['vendor', 'tools', 'build']),
     )
 ;

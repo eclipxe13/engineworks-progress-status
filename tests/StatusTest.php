@@ -82,7 +82,7 @@ class StatusTest extends TestCase
         $status = Status::make(20, '', 1, $startTime, $currentTime);
         $this->assertSame(
             date('c', $currentTime + ($status->getRemain() * $timeToEndOneTask)),
-            date('c', $status->getEstimatedTimeOfEnd() ?? 0)
+            date('c', $status->getEstimatedTimeOfEnd() ?? 0),
         );
     }
 
@@ -94,7 +94,7 @@ class StatusTest extends TestCase
         $status = Status::make(2, '', 1, $startTime, $currentTime);
         $this->assertSame(
             date('c', $expectedTime),
-            date('c', $status->getEstimatedTimeOfEnd() ?? 0)
+            date('c', $status->getEstimatedTimeOfEnd() ?? 0),
         );
     }
 
