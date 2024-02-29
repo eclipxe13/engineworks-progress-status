@@ -28,7 +28,7 @@ class ProgressByRatio extends Progress
         Status $status = null,
         iterable $observers = [],
         float $ratio = 0.01,
-        int $precision = 2,
+        int $precision = 2
     ) {
         parent::__construct($status, $observers);
         if ($precision < 0) {

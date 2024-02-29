@@ -39,7 +39,7 @@ class NullProgress implements ProgressInterface
         $value = null,
         $total = null,
         int $startTime = null,
-        int $current = null,
+        int $current = null
     ): void {
     }
 

@@ -38,7 +38,7 @@ interface ProgressInterface extends SplSubject
         int $value = null,
         int $total = null,
         int $startTime = null,
-        int $current = null,
+        int $current = null
     ): void;
 
     /**

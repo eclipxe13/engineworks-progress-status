@@ -45,7 +45,7 @@ class Progress implements SplSubject, ProgressInterface
         int $value = null,
         int $total = null,
         int $startTime = null,
-        int $current = null,
+        int $current = null
     ): void {
         $newStatus = new Status(
             $current ?? time(),
