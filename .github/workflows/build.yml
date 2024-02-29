@@ -12,6 +12,7 @@ on:
 # shivammathur/setup-php@v2 https://github.com/marketplace/actions/setup-php-action
 
 jobs:
+
   phpcs:
     name: Coding standards (phpcs)
     runs-on: "ubuntu-latest"
@@ -131,8 +132,10 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
       - name: Install project dependencies
         run: composer upgrade --no-interaction --no-progress --prefer-dist
+      - name: Psalm version
+        run: psalm --version
       - name: Psalm
-        run: psalm --no-progress
+        run: psalm --no-progress --output-format=checkstyle
 
   infection:
     name: Mutation testing (infection)
