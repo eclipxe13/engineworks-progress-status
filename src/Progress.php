@@ -45,14 +45,14 @@ class Progress implements SplSubject, ProgressInterface
         int $value = null,
         int $total = null,
         int $startTime = null,
-        int $current = null
+        int $current = null,
     ): void {
         $newStatus = new Status(
             $current ?? time(),
             $startTime ?? $this->status->getStart(),
             $value ?? $this->status->getValue(),
             $total ?? $this->status->getTotal(),
-            $message ?: $this->status->getMessage()
+            $message ?: $this->status->getMessage(),
         );
         $shouldNotifyChange = $this->shouldNotifyChange($this->status, $newStatus);
         $this->status = $newStatus;

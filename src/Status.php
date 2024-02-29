@@ -61,7 +61,7 @@ class Status
         string $message = '',
         int $value = 0,
         ?int $startTime = null,
-        ?int $current = null
+        ?int $current = null,
     ): self {
         $now = time();
         /** @psalm-suppress RiskyTruthyFalsyComparison */
