@@ -64,6 +64,7 @@ class Status
         ?int $current = null
     ): self {
         $now = time();
+        /** @psalm-suppress RiskyTruthyFalsyComparison */
         return new self($current ?: $now, $startTime ?: $now, $value, $total, $message);
     }
 
