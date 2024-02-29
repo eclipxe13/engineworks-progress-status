@@ -11,7 +11,7 @@ build:
     analysis: # see https://scrutinizer-ci.com/docs/tools/php/php-scrutinizer/
       environment:
         php:
-          version: 8.2
+          version: 8.3
       project_setup: { override: true }
       tests:
         override:
