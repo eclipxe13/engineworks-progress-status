@@ -11,11 +11,11 @@
 Use this library to track progress on long tasks. This library uses the SPL classes for Subject Observer pattern.
 The subject is the Progress object, the observers get notified when the status changes.
 
-# Installation
+## Installation
 
 Use composer to install this library `composer require eclipxe/engineworks-progress-status`
 
-# Basic use
+## Basic use
 
 ```php
 <?php declare(strict_types=1); 
@@ -45,32 +45,34 @@ echo sprintf(
 );
 ```
 
-## EngineWorks\ProgressStatus\Status
+### EngineWorks\ProgressStatus\Status
 
 This is an immutable class that stores:
-- `start` - DateTime object when the complete progress starts
-- `current` - DateTime object to set the current (last updated) time
-- `total` - count of expected tasks
-- `value` - current value of the progress
-- `message` - current (last updated) status message
 
-## EngineWorks\ProgressStatus\ProgressInterface
+- `start` - DateTime object when the complete progress starts.
+- `current` - DateTime object to set the current (last updated) time.
+- `total` - count of expected tasks.
+- `value` - current value of the progress.
+- `message` - current (last updated) status message.
+
+### EngineWorks\ProgressStatus\ProgressInterface
 
 This is the contract for a progress class. it contains a few methods to be implemented:
-- `getStatus` - Retrieve the current status of the progress 
-- `increase` - Change the message and add a value to the current status  
-- `update` - Change the full status 
-- `shouldNotifyChange` - Compare two status to know when should notify the observers 
 
-## EngineWorks\ProgressStatus\Progress
+- `getStatus` - Retrieve the current status of the progress.
+- `increase` - Change the message and add a value to the current status.
+- `update` - Change the full status.
+- `shouldNotifyChange` - Compare two status to know when should notify the observers.
+
+### EngineWorks\ProgressStatus\Progress
 
 This is a basic implementation of the `ProgressInterface` interface ready to use.
 It will notify to all the observer on any change.
 
 You can use this class as a template to set different ways to notify,
-just override the `shouldNotifyChange` method according to your specific needs. 
+just override the `shouldNotifyChange` method according to your specific needs.
 
-## EngineWorks\ProgressStatus\ProgressByRatio
+### EngineWorks\ProgressStatus\ProgressByRatio
 
 This is a specialized progress (extending `Progress` class) that notify only
 when the radio (`value` vs `total`) is modified.
@@ -92,7 +94,7 @@ as they must only exist inside this project. Do not use them in your project.
 
 - Version `1.x` is EOL. It will not receive any updates. It was compatible with PHP from 5.6 to PHP 8.0.
 
-- Version `2.x` is current. It is compatible with PHP 7.3 and higher. 
+- Version `2.x` is current. It is compatible with PHP 7.3 and higher.
 
 ## Contributing
 
@@ -103,7 +105,6 @@ and don't forget to take a look in the [TODO][] and [CHANGELOG][] files.
 
 The `eclipxe/engineworks-progress-status` library is copyright © [Carlos C Soto](https://eclipxe.com.mx/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
-
 
 [contributing]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/CONTRIBUTING.md
 [todo]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/TODO.md
