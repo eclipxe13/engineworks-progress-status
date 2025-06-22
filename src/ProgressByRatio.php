@@ -25,7 +25,7 @@ class ProgressByRatio extends Progress
      * @param int $precision
      */
     public function __construct(
-        Status $status = null,
+        ?Status $status = null,
         iterable $observers = [],
         float $ratio = 0.01,
         int $precision = 2

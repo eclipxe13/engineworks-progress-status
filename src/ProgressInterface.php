@@ -35,10 +35,10 @@ interface ProgressInterface extends SplSubject
      */
     public function update(
         string $message = '',
-        int $value = null,
-        int $total = null,
-        int $startTime = null,
-        int $current = null
+        ?int $value = null,
+        ?int $total = null,
+        ?int $startTime = null,
+        ?int $current = null
     ): void;
 
     /**

@@ -17,7 +17,7 @@ class NullProgress implements ProgressInterface
     /** @var Status */
     private $status;
 
-    public function __construct(Status $status = null)
+    public function __construct(?Status $status = null)
     {
         $this->status = $status ?: Status::make();
     }
@@ -35,11 +35,11 @@ class NullProgress implements ProgressInterface
      * @inheritdoc
      */
     public function update(
-        string $message = null,
-        $value = null,
-        $total = null,
-        int $startTime = null,
-        int $current = null
+        string $message = '',
+        ?int $value = null,
+        ?int $total = null,
+        ?int $startTime = null,
+        ?int $current = null
     ): void {
     }
 
