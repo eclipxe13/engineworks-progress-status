@@ -10,7 +10,7 @@ use SplSubject;
 
 class Observer implements SplObserver
 {
-    /** @var SplSubject */
+    /** @var SplSubject|null */
     public $subject = null;
 
     /** @var string[] */

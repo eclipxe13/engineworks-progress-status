@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace EngineWorks\ProgressStatus;
 
+use EngineWorks\ProgressStatus\Tests\Mocks\Observer;
 use LogicException;
 use SplObserver;
 use SplSubject;
@@ -34,10 +35,12 @@ trait SplSubjectWithObserversTrait
     public function notify(): void
     {
         if (! $this instanceof SplSubject) {
-            /** @psalm-var object $this Psalm identify $this as empty-mixed */
             throw new LogicException(sprintf('Object %s is not an instance of SplSubject', get_class($this)));
         }
-        foreach ($this->getObservers() as $observer) {
+        /** @phpstan-var ObserversSet $observers */
+        $observers = $this->getObservers();
+        /** @phpstan-var Observer $observer */
+        foreach ($observers as $observer) {
             $observer->update($this);
         }
     }

@@ -7,7 +7,6 @@ namespace EngineWorks\ProgressStatus;
 use InvalidArgumentException;
 use SplObserver;
 
-/** @psalm-suppress PropertyNotSetInConstructor psalm does not recognize that Progress is setting $observers */
 class ProgressByRatio extends Progress
 {
     /** @var float */
@@ -25,7 +24,7 @@ class ProgressByRatio extends Progress
      * @param int $precision
      */
     public function __construct(
-        Status $status = null,
+        ?Status $status = null,
         iterable $observers = [],
         float $ratio = 0.01,
         int $precision = 2

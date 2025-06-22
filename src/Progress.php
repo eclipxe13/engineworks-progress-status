@@ -20,7 +20,7 @@ class Progress implements SplSubject, ProgressInterface
      * @param Status|null $initialStatus when null it creates an empty State using make method
      * @param iterable<SplObserver> $observers
      */
-    public function __construct(Status $initialStatus = null, iterable $observers = [])
+    public function __construct(?Status $initialStatus = null, iterable $observers = [])
     {
         $this->constructSplSubjectWithObservers();
         $this->status = $initialStatus ?: Status::make();
@@ -42,10 +42,10 @@ class Progress implements SplSubject, ProgressInterface
 
     public function update(
         string $message = '',
-        int $value = null,
-        int $total = null,
-        int $startTime = null,
-        int $current = null
+        ?int $value = null,
+        ?int $total = null,
+        ?int $startTime = null,
+        ?int $current = null
     ): void {
         $newStatus = new Status(
             $current ?? time(),
