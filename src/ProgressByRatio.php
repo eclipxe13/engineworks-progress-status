@@ -42,7 +42,7 @@ class ProgressByRatio extends Progress
     {
         $current = (int) ceil(round($current->getRatio(), $this->precision) / $this->ratio);
         $new = (int) ceil(round($newStatus->getRatio(), $this->precision) / $this->ratio);
-        return ($current !== $new);
+        return $current !== $new;
     }
 
     public function getRatio(): float
