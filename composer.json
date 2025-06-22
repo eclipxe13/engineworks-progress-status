@@ -48,7 +48,6 @@
         "dev:test": [
             "@dev:phpunit",
             "@dev:phpstan",
-            "@dev:psalm",
             "@dev:infection"
         ],
         "dev:coverage": [
@@ -60,9 +59,6 @@
         "dev:phpstan": [
             "@php tools/phpstan analyse --no-progress"
         ],
-        "dev:psalm": [
-            "@php tools/psalm --no-progress"
-        ],
         "dev:infection": [
             "@php tools/infection --initial-tests-php-options='-dzend_extension=xdebug.so -dxdebug.mode=coverage' --show-mutations --no-progress"
         ]
@@ -71,10 +67,9 @@
         "dev:build": "DEV: run dev:fix-style, dev:check-style and dev:tests, run before pull request",
         "dev:check-style": "DEV: search for code style errors using php-cs-fixer and phpcs",
         "dev:fix-style": "DEV: fix code style errors using php-cs-fixer and phpcbf",
-        "dev:test": "DEV: run dev:phpunit, dev:phpstan, dev:psalm and dev:infection",
+        "dev:test": "DEV: run dev:phpunit, dev:phpstan and dev:infection",
         "dev:phpunit": "DEV: run phpunit tests suite",
         "dev:phpstan": "DEV: run phpstan code analysis",
-        "dev:psalm": "DEV: run psalm code analysis",
         "dev:coverage": "DEV: run phpunit with xdebug and storage coverage in build/coverage/html/",
         "dev:infection": "DEV: run mutation tests using infection"
     }

@@ -34,7 +34,6 @@ trait SplSubjectWithObserversTrait
     public function notify(): void
     {
         if (! $this instanceof SplSubject) {
-            /** @psalm-var object $this Psalm identify $this as empty-mixed */
             throw new LogicException(sprintf('Object %s is not an instance of SplSubject', get_class($this)));
         }
         foreach ($this->getObservers() as $observer) {
