@@ -11,7 +11,7 @@ build:
     analysis: # see https://scrutinizer-ci.com/docs/tools/php/php-scrutinizer/
       environment:
         php:
-          version: 8.2.15 # 2023-01-18 see https://www.php.net/releases/
+          version: 8.4.7 # 2025-06-21 see https://www.php.net/releases/
       project_setup: { override: true }
       tests:
         override:
