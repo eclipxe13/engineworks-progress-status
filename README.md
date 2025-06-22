@@ -5,8 +5,6 @@
 [![Latest Version][badge-release]][release]
 [![Software License][badge-license]][license]
 [![Build Status][badge-build]][build]
-[![Scrutinizer][badge-quality]][quality]
-[![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
 Use this library to track progress on long tasks. This library uses the SPL classes for Subject Observer pattern.
@@ -116,8 +114,6 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [release]: https://github.com/eclipxe13/engineworks-progress-status/releases
 [license]: https://github.com/eclipxe13/engineworks-progress-status/blob/main/LICENSE
 [build]: https://github.com/eclipxe13/engineworks-progress-status/actions/workflows/build.yml?query=branch:main
-[quality]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/
-[coverage]: https://scrutinizer-ci.com/g/eclipxe13/engineworks-progress-status/code-structure/main/code-coverage
 [downloads]: https://packagist.org/packages/eclipxe/engineworks-progress-status
 
 [badge-source]: https://img.shields.io/badge/source-eclipxe/engineworks--progress--status-blue.svg?style=flat-square
@@ -125,6 +121,4 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [badge-release]: https://img.shields.io/github/release/eclipxe13/engineworks-progress-status.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/eclipxe13/engineworks-progress-status.svg?style=flat-square
 [badge-build]: https://img.shields.io/github/actions/workflow/status/eclipxe13/engineworks-progress-status/build.yml?branch=main&style=flat-square
-[badge-quality]: https://img.shields.io/scrutinizer/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/eclipxe13/engineworks-progress-status/main.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/eclipxe/engineworks-progress-status.svg?style=flat-square

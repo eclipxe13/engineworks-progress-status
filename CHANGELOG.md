@@ -8,10 +8,10 @@
 These changes apply to development environment:
 
 - Remove PHPStan tool.
+- Remove Scrutinizer-CI.
 - GitHub Workflows:
   - Add PHP 8.4 to test matrix.
   - Run jobs using PHP 8.4.
-- Run Scrutinizer on PHP 8.4.
 - Upgrade development tools.
 
 ## v2.0.2 2024-02-29
@@ -25,7 +25,7 @@ These changes apply to development environment:
   - Show Psalm version before run.
   - Allow dispatch workflows manually.
 - Add `.editorconfig` configuration file.
-- Run Scrutinizer on PHP 8.3.
+- Run Scrutinizer-CI on PHP 8.3.
 - Upgrade development tools.
 
 ## v2.0.1 2023-03-22
