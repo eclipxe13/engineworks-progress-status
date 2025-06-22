@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.0.3 2025-06-21
+
+- Fix PHP 8.4 compatibility issues.
+- Update license year to 2024.
+
+These changes apply to development environment:
+
+- Remove PHPStan tool.
+- GitHub Workflows:
+  - Add PHP 8.4 to test matrix.
+  - Run jobs using PHP 8.4.
+- Run Scrutinizer on PHP 8.4.
+- Upgrade development tools.
+
 ## v2.0.2 2024-02-29
 
 - Update coding standards to PSR-12 with new rules.
