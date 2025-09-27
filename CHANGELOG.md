@@ -1,5 +1,13 @@
 # Changelog
 
+## Maintenance 2025-09-26
+
+- Upgrade SonarQube Cloud integration.
+- Update deprecated rules for `php-cs-fixer`.
+- Remove deprecated rule for `phpcs`.
+- Upgrade phpcs and phpcbf to version 4.
+- Update development tools.
+
 ## v2.0.3 2025-06-21
 
 - Fix PHP 8.4 compatibility issues.
